@@ -1,0 +1,2 @@
+rootProject.name = "MoldesCMMS"
+include ':app'

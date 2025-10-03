@@ -1,0 +1,15 @@
+<manifest package="com.example.moldescmms"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <application
+        android:allowBackup="true"
+        android:label="MoldesCMMS"
+        android:supportsRtl="true">
+        <activity android:name="com.example.moldescmms.LoginActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="com.example.moldescmms.MainActivity" />
+    </application>
+</manifest>
