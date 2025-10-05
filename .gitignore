@@ -9,3 +9,24 @@
 backups/
 *.sh
 app/build.gradle.backup
+
+# Backups y scripts temporales
+backups/
+*.backup
+verify_project.sh
+setup_complete_project.sh
+update_project.sh
+
+# Archivos de Android Studio
+*.iml
+.gradle
+local.properties
+.idea/
+.DS_Store
+build/
+captures/
+.externalNativeBuild
+.cxx
+
+# Archivos de Room
+app/schemas/
