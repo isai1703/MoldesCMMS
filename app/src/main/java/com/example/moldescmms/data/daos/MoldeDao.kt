@@ -1,19 +1,44 @@
-package $PKG.data.daos
+package com.example.moldescmms.data.daos
 
 import androidx.room.*
-import $PKG.data.entities.Molde
+import com.example.moldescmms.data.entities.Molde
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface MoldeDao {
-    @Query("SELECT * FROM moldes")
-    fun getAll(): List<Molde>
-
-    @Insert
-    fun insert(m: Molde): Long
-
+    @Query("SELECT * FROM moldes ORDER BY nombre ASC")
+    fun getAll(): Flow<List<Molde>>
+    
+    @Query("SELECT * FROM moldes ORDER BY nombre ASC")
+    suspend fun getAllList(): List<Molde>
+    
+    @Query("SELECT * FROM moldes WHERE id = :id")
+    suspend fun getById(id: Long): Molde?
+    
+    @Query("SELECT * FROM moldes WHERE codigo = :codigo")
+    suspend fun getByCodigo(codigo: String): Molde?
+    
+    @Query("SELECT * FROM moldes WHERE estado = :estado")
+    fun getByEstado(estado: String): Flow<List<Molde>>
+    
+    @Query("SELECT * FROM moldes WHERE nombre LIKE '%' || :query || '%' OR codigo LIKE '%' || :query || '%'")
+    fun search(query: String): Flow<List<Molde>>
+    
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insert(molde: Molde): Long
+    
     @Update
-    fun update(m: Molde)
-
+    suspend fun update(molde: Molde)
+    
     @Delete
-    fun delete(m: Molde)
+    suspend fun delete(molde: Molde)
+    
+    @Query("DELETE FROM moldes WHERE id = :id")
+    suspend fun deleteById(id: Long)
+    
+    @Query("SELECT COUNT(*) FROM moldes")
+    suspend fun getCount(): Int
+    
+    @Query("SELECT COUNT(*) FROM moldes WHERE estado = :estado")
+    suspend fun getCountByEstado(estado: String): Int
 }

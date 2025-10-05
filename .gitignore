@@ -6,3 +6,6 @@
 **/build
 *.iml
 *.keystore
+backups/
+*.sh
+app/build.gradle.backup
