@@ -11,3 +11,9 @@
     <string name="menu_calidad">Control de Calidad</string>
     <string name="menu_compras">Órdenes de Compra</string>
     <string name="menu_departamentos">Departamentos</string>
+    <string name="taller_moldes">Taller de Moldes</string>
+    <string name="mantenimiento_maquinas">Mantenimiento de Máquinas</string>
+    <string name="produccion">Producción</string>
+    <string name="almacen">Almacén</string>
+    <string name="calidad">Calidad</string>
+    <string name="compras">Compras</string>

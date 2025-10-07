@@ -42,6 +42,16 @@
             android:padding="8dp"/>
 
         <Button
+            android:id="@+id/btn_solicitudes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📋 Solicitudes de Mantenimiento"
+            android:textSize="16sp"
+            android:padding="16dp"
+            android:backgroundTint="@color/warning"
+            android:layout_marginTop="4dp"/>
+
+        <Button
             android:id="@+id/btn_moldes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -54,7 +64,7 @@
             android:id="@+id/btn_mantenimientos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="🔧 Mantenimientos"
+            android:text="🔧 Mantenimientos de Moldes"
             android:textSize="16sp"
             android:padding="16dp"
             android:layout_marginTop="4dp"/>
@@ -80,7 +90,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="PRODUCCIÓN"
+            android:text="MANTENIMIENTO DE MÁQUINAS"
             android:textStyle="bold"
             android:textSize="18sp"
             android:layout_marginTop="16dp"
@@ -97,10 +107,38 @@
             android:layout_marginTop="4dp"/>
 
         <Button
+            android:id="@+id/btn_mantenimientos_maquinas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🔧 Mantenimientos de Máquinas"
+            android:textSize="16sp"
+            android:padding="16dp"
+            android:layout_marginTop="4dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="PRODUCCIÓN"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginTop="16dp"
+            android:background="#FFEBEE"
+            android:padding="8dp"/>
+
+        <Button
             android:id="@+id/btn_productos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="📦 Productos"
+            android:textSize="16sp"
+            android:padding="16dp"
+            android:layout_marginTop="4dp"/>
+
+        <Button
+            android:id="@+id/btn_ordenes_produccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📋 Órdenes de Producción"
             android:textSize="16sp"
             android:padding="16dp"
             android:layout_marginTop="4dp"/>
