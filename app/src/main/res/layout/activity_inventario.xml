@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Inventario General"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:padding="16dp"
+        android:background="@color/primary"
+        android:textColor="@color/white"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="PRODUCTOS"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:background="#E8F5E9"
+                android:padding="8dp"/>
+
+            <TextView
+                android:id="@+id/tv_productos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:text="Cargando..."/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="REFACCIONES"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:background="#FFF3E0"
+                android:padding="8dp"
+                android:layout_marginTop="16dp"/>
+
+            <TextView
+                android:id="@+id/tv_refacciones"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:text="Cargando..."/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="HERRAMIENTAS"
+                android:textStyle="bold"
+                android:textSize="18sp"
+                android:background="#E3F2FD"
+                android:padding="8dp"
+                android:layout_marginTop="16dp"/>
+
+            <TextView
+                android:id="@+id/tv_herramientas"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:text="Cargando..."/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</LinearLayout>

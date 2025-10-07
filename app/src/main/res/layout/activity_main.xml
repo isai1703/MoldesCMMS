@@ -26,10 +26,20 @@
             android:id="@+id/tv_welcome"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Bienvenido"
-            android:textSize="18sp"
+            android:text="Cargando..."
+            android:textSize="16sp"
             android:padding="16dp"
             android:gravity="center"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TALLER DE MOLDES"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginTop="8dp"
+            android:background="#E3F2FD"
+            android:padding="8dp"/>
 
         <Button
             android:id="@+id/btn_moldes"
@@ -38,7 +48,7 @@
             android:text="📦 Gestión de Moldes"
             android:textSize="16sp"
             android:padding="16dp"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginTop="4dp"/>
 
         <Button
             android:id="@+id/btn_mantenimientos"
@@ -47,7 +57,7 @@
             android:text="🔧 Mantenimientos"
             android:textSize="16sp"
             android:padding="16dp"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginTop="4dp"/>
 
         <Button
             android:id="@+id/btn_herramientas"
@@ -56,7 +66,7 @@
             android:text="🔨 Herramientas"
             android:textSize="16sp"
             android:padding="16dp"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginTop="4dp"/>
 
         <Button
             android:id="@+id/btn_refacciones"
@@ -65,16 +75,111 @@
             android:text="⚙️ Refacciones"
             android:textSize="16sp"
             android:padding="16dp"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginTop="4dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="PRODUCCIÓN"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginTop="16dp"
+            android:background="#E8F5E9"
+            android:padding="8dp"/>
+
+        <Button
+            android:id="@+id/btn_maquinas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🏭 Máquinas"
+            android:textSize="16sp"
+            android:padding="16dp"
+            android:layout_marginTop="4dp"/>
+
+        <Button
+            android:id="@+id/btn_productos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📦 Productos"
+            android:textSize="16sp"
+            android:padding="16dp"
+            android:layout_marginTop="4dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ALMACÉN"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginTop="16dp"
+            android:background="#FFF3E0"
+            android:padding="8dp"/>
+
+        <Button
+            android:id="@+id/btn_inventario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📊 Inventario General"
+            android:textSize="16sp"
+            android:padding="16dp"
+            android:layout_marginTop="4dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="CALIDAD"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginTop="16dp"
+            android:background="#F3E5F5"
+            android:padding="8dp"/>
+
+        <Button
+            android:id="@+id/btn_inspecciones"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="✓ Inspecciones de Calidad"
+            android:textSize="16sp"
+            android:padding="16dp"
+            android:layout_marginTop="4dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="COMPRAS"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginTop="16dp"
+            android:background="#FCE4EC"
+            android:padding="8dp"/>
+
+        <Button
+            android:id="@+id/btn_ordenes_compra"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🛒 Órdenes de Compra"
+            android:textSize="16sp"
+            android:padding="16dp"
+            android:layout_marginTop="4dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="REPORTES"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            android:layout_marginTop="16dp"
+            android:background="#ECEFF1"
+            android:padding="8dp"/>
 
         <Button
             android:id="@+id/btn_estadisticas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="📊 Estadísticas"
+            android:text="📈 Estadísticas Generales"
             android:textSize="16sp"
             android:padding="16dp"
-            android:layout_marginTop="8dp"/>
+            android:layout_marginTop="4dp"/>
 
     </LinearLayout>
 </ScrollView>

@@ -29,65 +29,37 @@
             </intent-filter>
         </activity>
         
-        <activity
-            android:name=".ui.MainActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity" />
-            
-        <activity
-            android:name=".ui.MoldesListActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity" />
-            
-        <activity
-            android:name=".ui.MoldeFormActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity" />
-            
-        <activity
-            android:name=".ui.MantenimientosListActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity" />
-            
-        <activity
-            android:name=".ui.MantenimientoFormActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity" />
-            
-        <activity
-            android:name=".ui.HerramientasListActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity" />
-            
-        <activity
-            android:name=".ui.HerramientaFormActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity" />
-            
-        <activity
-            android:name=".ui.RefaccionesListActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity" />
-            
-        <activity
-            android:name=".ui.RefaccionFormActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity" />
-            
-        <activity
-            android:name=".ui.EstadisticasActivity"
-            android:exported="false"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity" />
+        <activity android:name=".ui.MainActivity" android:exported="false" />
+        
+        <!-- Taller de Moldes -->
+        <activity android:name=".ui.MoldesListActivity" android:exported="false" />
+        <activity android:name=".ui.MoldeFormActivity" android:exported="false" />
+        <activity android:name=".ui.MantenimientosListActivity" android:exported="false" />
+        <activity android:name=".ui.MantenimientoFormActivity" android:exported="false" />
+        <activity android:name=".ui.HerramientasListActivity" android:exported="false" />
+        <activity android:name=".ui.HerramientaFormActivity" android:exported="false" />
+        <activity android:name=".ui.RefaccionesListActivity" android:exported="false" />
+        <activity android:name=".ui.RefaccionFormActivity" android:exported="false" />
+        
+        <!-- Producción -->
+        <activity android:name=".ui.MaquinasListActivity" android:exported="false" />
+        <activity android:name=".ui.MaquinaFormActivity" android:exported="false" />
+        <activity android:name=".ui.ProductosListActivity" android:exported="false" />
+        <activity android:name=".ui.ProductoFormActivity" android:exported="false" />
+        
+        <!-- Almacén -->
+        <activity android:name=".ui.InventarioActivity" android:exported="false" />
+        
+        <!-- Calidad -->
+        <activity android:name=".ui.InspeccionesListActivity" android:exported="false" />
+        <activity android:name=".ui.InspeccionFormActivity" android:exported="false" />
+        
+        <!-- Compras -->
+        <activity android:name=".ui.OrdenesCompraListActivity" android:exported="false" />
+        <activity android:name=".ui.OrdenCompraFormActivity" android:exported="false" />
+        
+        <!-- Reportes -->
+        <activity android:name=".ui.EstadisticasActivity" android:exported="false" />
             
     </application>
 

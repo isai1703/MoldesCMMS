@@ -8,6 +8,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import com.example.moldescmms.R
 import com.example.moldescmms.data.AppDatabase
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
@@ -20,32 +21,54 @@ class MainActivity : AppCompatActivity() {
         
         database = AppDatabase.getDatabase(this)
         
-        val tvWelcome = findViewById<TextView>(R.id.tv_welcome)
-        val btnMoldes = findViewById<Button>(R.id.btn_moldes)
-        val btnMantenimientos = findViewById<Button>(R.id.btn_mantenimientos)
-        val btnHerramientas = findViewById<Button>(R.id.btn_herramientas)
-        val btnRefacciones = findViewById<Button>(R.id.btn_refacciones)
-        val btnEstadisticas = findViewById<Button>(R.id.btn_estadisticas)
-        
-        loadEstadisticas(tvWelcome)
-        
-        btnMoldes.setOnClickListener {
+        setupButtons()
+        loadEstadisticas(findViewById(R.id.tv_welcome))
+    }
+    
+    private fun setupButtons() {
+        // Taller de Moldes
+        findViewById<Button>(R.id.btn_moldes).setOnClickListener {
             startActivity(Intent(this, MoldesListActivity::class.java))
         }
         
-        btnMantenimientos.setOnClickListener {
+        findViewById<Button>(R.id.btn_mantenimientos).setOnClickListener {
             startActivity(Intent(this, MantenimientosListActivity::class.java))
         }
         
-        btnHerramientas.setOnClickListener {
+        findViewById<Button>(R.id.btn_herramientas).setOnClickListener {
             startActivity(Intent(this, HerramientasListActivity::class.java))
         }
         
-        btnRefacciones.setOnClickListener {
+        findViewById<Button>(R.id.btn_refacciones).setOnClickListener {
             startActivity(Intent(this, RefaccionesListActivity::class.java))
         }
         
-        btnEstadisticas.setOnClickListener {
+        // Producción
+        findViewById<Button>(R.id.btn_maquinas).setOnClickListener {
+            startActivity(Intent(this, MaquinasListActivity::class.java))
+        }
+        
+        findViewById<Button>(R.id.btn_productos).setOnClickListener {
+            startActivity(Intent(this, ProductosListActivity::class.java))
+        }
+        
+        // Almacén
+        findViewById<Button>(R.id.btn_inventario).setOnClickListener {
+            startActivity(Intent(this, InventarioActivity::class.java))
+        }
+        
+        // Calidad
+        findViewById<Button>(R.id.btn_inspecciones).setOnClickListener {
+            startActivity(Intent(this, InspeccionesListActivity::class.java))
+        }
+        
+        // Compras
+        findViewById<Button>(R.id.btn_ordenes_compra).setOnClickListener {
+            startActivity(Intent(this, OrdenesCompraListActivity::class.java))
+        }
+        
+        // Estadísticas
+        findViewById<Button>(R.id.btn_estadisticas).setOnClickListener {
             startActivity(Intent(this, EstadisticasActivity::class.java))
         }
     }
@@ -57,27 +80,21 @@ class MainActivity : AppCompatActivity() {
     
     private fun loadEstadisticas(textView: TextView) {
         lifecycleScope.launch {
-            val countMoldes = database.moldeDao().getCount()
-            val countPendientes = database.mantenimientoDao().getPendientesCount()
-            
-            var countHerramientas = 0
-            database.herramientaDao().getAll().collect { list ->
-                countHerramientas = list.size
-            }
-            
-            var refaccionesBajas = 0
-            database.refaccionDao().getBajoStock().collect { list ->
-                refaccionesBajas = list.size
-            }
-            
-            textView.text = """
-                Sistema CMMS de Moldes
+            try {
+                val countMoldes = database.moldeDao().getCount()
+                val countPendientes = database.mantenimientoDao().getPendientesCount()
+                val countHerramientas = database.herramientaDao().getAll().first().size
+                val refaccionesBajas = database.refaccionDao().getBajoStock().first().size
                 
-                📦 Moldes registrados: $countMoldes
-                🔧 Mantenimientos pendientes: $countPendientes
-                🔨 Herramientas: $countHerramientas
-                ⚙️ Refacciones bajo stock: $refaccionesBajas
-            """.trimIndent()
+                textView.text = """
+                    Sistema Integrado de Gestión
+                    
+                    Moldes: $countMoldes | Mant. pendientes: $countPendientes
+                    Herramientas: $countHerramientas | Refacciones críticas: $refaccionesBajas
+                """.trimIndent()
+            } catch (e: Exception) {
+                textView.text = "Sistema Integrado de Gestión"
+            }
         }
     }
 }

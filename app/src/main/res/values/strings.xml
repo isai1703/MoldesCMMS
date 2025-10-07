@@ -6,3 +6,8 @@
     <string name="password">Contraseña</string>
     <string name="welcome">Bienvenido</string>
 </resources>
+    <string name="menu_maquinas">Máquinas</string>
+    <string name="menu_productos">Productos</string>
+    <string name="menu_calidad">Control de Calidad</string>
+    <string name="menu_compras">Órdenes de Compra</string>
+    <string name="menu_departamentos">Departamentos</string>
