@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Solicitud de Mantenimiento"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="16dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Departamento Solicitante *"
+            android:textStyle="bold"/>
+
+        <Spinner
+            android:id="@+id/sp_departamento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Molde *"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"/>
+
+        <Spinner
+            android:id="@+id/sp_molde"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tipo de Mantenimiento *"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"/>
+
+        <Spinner
+            android:id="@+id/sp_tipo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Subtipo *"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"/>
+
+        <Spinner
+            android:id="@+id/sp_subtipo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/tv_detalles_conexion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tipo de Conexión"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"
+            android:visibility="gone"/>
+
+        <Spinner
+            android:id="@+id/sp_detalle_conexion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
+
+        <CheckBox
+            android:id="@+id/cb_conexion_y"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Requiere conexión tipo Y"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tv_calibre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Calibre de Manguera"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"
+            android:visibility="gone"/>
+
+        <Spinner
+            android:id="@+id/sp_calibre"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/tv_cantidad_mangueras"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Cantidad de Mangueras"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"
+            android:visibility="gone"/>
+
+        <EditText
+            android:id="@+id/et_cantidad_mangueras"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="0"
+            android:inputType="number"
+            android:visibility="gone"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Prioridad *"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"/>
+
+        <Spinner
+            android:id="@+id/sp_prioridad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Descripción del Problema *"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"/>
+
+        <EditText
+            android:id="@+id/et_problema"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Describa detalladamente el problema"
+            android:inputType="textMultiLine"
+            android:lines="4"/>
+
+        <CheckBox
+            android:id="@+id/cb_afecta_produccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Afecta producción"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Comentarios Adicionales"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"/>
+
+        <EditText
+            android:id="@+id/et_comentarios"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Información adicional"
+            android:inputType="textMultiLine"
+            android:lines="3"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="16dp">
+
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Enviar Solicitud"
+                android:layout_marginEnd="8dp"/>
+
+            <Button
+                android:id="@+id/btn_cancel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Cancelar"/>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>
