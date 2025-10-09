@@ -35,7 +35,8 @@ class SolicitudMantenimientoFormActivity : AppCompatActivity() {
     }
     
     private fun setupSpinners() {
-        val departamentos = arrayOf("Producción", "Calidad")
+        // Departamentos ampliados
+        val departamentos = arrayOf("Producción", "Calidad", "Mantenimiento Máquinas")
         val deptAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, departamentos)
         deptAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         findViewById<Spinner>(R.id.sp_departamento).adapter = deptAdapter
@@ -170,10 +171,15 @@ class SolicitudMantenimientoFormActivity : AppCompatActivity() {
         )
         
         lifecycleScope.launch {
-            database.solicitudMantenimientoDao().insert(solicitud)
-            Toast.makeText(this@SolicitudMantenimientoFormActivity, 
-                "Solicitud enviada exitosamente", Toast.LENGTH_SHORT).show()
-            finish()
+            try {
+                database.solicitudMantenimientoDao().insert(solicitud)
+                Toast.makeText(this@SolicitudMantenimientoFormActivity, 
+                    "Solicitud enviada exitosamente", Toast.LENGTH_SHORT).show()
+                finish()
+            } catch (e: Exception) {
+                Toast.makeText(this@SolicitudMantenimientoFormActivity, 
+                    "Error: ${e.message}", Toast.LENGTH_LONG).show()
+            }
         }
     }
 }

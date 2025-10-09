@@ -27,3 +27,6 @@ interface MaquinaDao {
     @Delete
     suspend fun delete(maquina: Maquina)
 }
+
+    @Query("SELECT * FROM maquinas ORDER BY codigo ASC")
+    suspend fun getAllList(): List<Maquina>

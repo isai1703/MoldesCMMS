@@ -18,11 +18,15 @@ import com.example.moldescmms.data.daos.*
         Departamento::class,
         Maquina::class,
         MantenimientoMaquina::class,
+        RefaccionMaquina::class,
         Producto::class,
         InspeccionCalidad::class,
-        OrdenCompra::class
+        OrdenCompra::class,
+        Operador::class,
+        RegistroProduccion::class,
+        RequerimientoInsumo::class
     ],
-    version = 3,
+    version = 4,
     exportSchema = true
 )
 abstract class AppDatabase : RoomDatabase() {
@@ -34,9 +38,13 @@ abstract class AppDatabase : RoomDatabase() {
     abstract fun refaccionDao(): RefaccionDao
     abstract fun departamentoDao(): DepartamentoDao
     abstract fun maquinaDao(): MaquinaDao
+    abstract fun refaccionMaquinaDao(): RefaccionMaquinaDao
     abstract fun productoDao(): ProductoDao
     abstract fun inspeccionCalidadDao(): InspeccionCalidadDao
     abstract fun ordenCompraDao(): OrdenCompraDao
+    abstract fun operadorDao(): OperadorDao
+    abstract fun registroProduccionDao(): RegistroProduccionDao
+    abstract fun requerimientoInsumoDao(): RequerimientoInsumoDao
 
     companion object {
         @Volatile

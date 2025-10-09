@@ -3,221 +3,131 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:fillViewport="true">
+    android:padding="16dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="MoldesCMMS"
-            android:textSize="28sp"
+            android:text="Sistema CMMS - Moldes"
+            android:textSize="24sp"
             android:textStyle="bold"
             android:gravity="center"
-            android:padding="16dp"
-            android:background="@color/primary"
-            android:textColor="@color/white"/>
+            android:layout_marginBottom="24dp" />
 
-        <TextView
-            android:id="@+id/tv_welcome"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Cargando..."
-            android:textSize="16sp"
-            android:padding="16dp"
-            android:gravity="center"/>
-
+        <!-- Módulos de Moldes -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="TALLER DE MOLDES"
-            android:textStyle="bold"
+            android:text="Gestión de Moldes"
             android:textSize="18sp"
-            android:layout_marginTop="8dp"
-            android:background="#E3F2FD"
-            android:padding="8dp"/>
-
-        <Button
-            android:id="@+id/btn_solicitudes"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="📋 Solicitudes de Mantenimiento"
-            android:textSize="16sp"
-            android:padding="16dp"
-            android:backgroundTint="@color/warning"
-            android:layout_marginTop="4dp"/>
+            android:textStyle="bold"
+            android:layout_marginBottom="8dp" />
 
         <Button
             android:id="@+id/btn_moldes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="📦 Gestión de Moldes"
-            android:textSize="16sp"
-            android:padding="16dp"
-            android:layout_marginTop="4dp"/>
+            android:text="Moldes"
+            android:layout_marginBottom="8dp" />
 
         <Button
             android:id="@+id/btn_mantenimientos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="🔧 Mantenimientos de Moldes"
-            android:textSize="16sp"
-            android:padding="16dp"
-            android:layout_marginTop="4dp"/>
+            android:text="Mantenimientos"
+            android:layout_marginBottom="8dp" />
 
         <Button
-            android:id="@+id/btn_herramientas"
+            android:id="@+id/btn_solicitudes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="🔨 Herramientas"
-            android:textSize="16sp"
-            android:padding="16dp"
-            android:layout_marginTop="4dp"/>
+            android:text="Solicitudes de Mantenimiento"
+            android:layout_marginBottom="16dp" />
 
-        <Button
-            android:id="@+id/btn_refacciones"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="⚙️ Refacciones"
-            android:textSize="16sp"
-            android:padding="16dp"
-            android:layout_marginTop="4dp"/>
-
+        <!-- Módulos de Operaciones -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="MANTENIMIENTO DE MÁQUINAS"
-            android:textStyle="bold"
+            android:text="Operaciones"
             android:textSize="18sp"
-            android:layout_marginTop="16dp"
-            android:background="#E8F5E9"
-            android:padding="8dp"/>
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btn_operadores"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Gestión de Operadores"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btn_registro_produccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Registro de Producción"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btn_requerimientos_insumo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Requerimientos de Insumos"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Módulos de Máquinas -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Máquinas y Equipos"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp" />
 
         <Button
             android:id="@+id/btn_maquinas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="🏭 Máquinas"
-            android:textSize="16sp"
-            android:padding="16dp"
-            android:layout_marginTop="4dp"/>
+            android:text="Máquinas"
+            android:layout_marginBottom="8dp" />
 
         <Button
-            android:id="@+id/btn_mantenimientos_maquinas"
+            android:id="@+id/btn_refacciones_maquina"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="🔧 Mantenimientos de Máquinas"
-            android:textSize="16sp"
-            android:padding="16dp"
-            android:layout_marginTop="4dp"/>
+            android:text="Refacciones de Máquinas"
+            android:layout_marginBottom="16dp" />
 
+        <!-- Módulos de Calidad e Inventario -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="PRODUCCIÓN"
-            android:textStyle="bold"
+            android:text="Calidad e Inventario"
             android:textSize="18sp"
-            android:layout_marginTop="16dp"
-            android:background="#FFEBEE"
-            android:padding="8dp"/>
+            android:textStyle="bold"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp" />
 
         <Button
-            android:id="@+id/btn_productos"
+            android:id="@+id/btn_calidad"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="📦 Productos"
-            android:textSize="16sp"
-            android:padding="16dp"
-            android:layout_marginTop="4dp"/>
-
-        <Button
-            android:id="@+id/btn_ordenes_produccion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="📋 Órdenes de Producción"
-            android:textSize="16sp"
-            android:padding="16dp"
-            android:layout_marginTop="4dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="ALMACÉN"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:layout_marginTop="16dp"
-            android:background="#FFF3E0"
-            android:padding="8dp"/>
+            android:text="Inspecciones de Calidad"
+            android:layout_marginBottom="8dp" />
 
         <Button
             android:id="@+id/btn_inventario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="📊 Inventario General"
-            android:textSize="16sp"
-            android:padding="16dp"
-            android:layout_marginTop="4dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="CALIDAD"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:layout_marginTop="16dp"
-            android:background="#F3E5F5"
-            android:padding="8dp"/>
-
-        <Button
-            android:id="@+id/btn_inspecciones"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="✓ Inspecciones de Calidad"
-            android:textSize="16sp"
-            android:padding="16dp"
-            android:layout_marginTop="4dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="COMPRAS"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:layout_marginTop="16dp"
-            android:background="#FCE4EC"
-            android:padding="8dp"/>
-
-        <Button
-            android:id="@+id/btn_ordenes_compra"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="🛒 Órdenes de Compra"
-            android:textSize="16sp"
-            android:padding="16dp"
-            android:layout_marginTop="4dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="REPORTES"
-            android:textStyle="bold"
-            android:textSize="18sp"
-            android:layout_marginTop="16dp"
-            android:background="#ECEFF1"
-            android:padding="8dp"/>
-
-        <Button
-            android:id="@+id/btn_estadisticas"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="📈 Estadísticas Generales"
-            android:textSize="16sp"
-            android:padding="16dp"
-            android:layout_marginTop="4dp"/>
+            android:text="Inventario y Compras"
+            android:layout_marginBottom="8dp" />
 
     </LinearLayout>
+
 </ScrollView>

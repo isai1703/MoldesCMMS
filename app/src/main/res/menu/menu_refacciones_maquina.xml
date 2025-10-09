@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    
+    <item
+        android:id="@+id/action_bajo_stock"
+        android:title="Bajo Stock"
+        app:showAsAction="never" />
+    
+    <item
+        android:id="@+id/action_todas"
+        android:title="Todas las Refacciones"
+        app:showAsAction="never" />
+        
+</menu>

@@ -42,3 +42,6 @@ interface MoldeDao {
     @Query("SELECT COUNT(*) FROM moldes WHERE estado = :estado")
     suspend fun getCountByEstado(estado: String): Int
 }
+
+    @Query("SELECT * FROM moldes ORDER BY codigo ASC")
+    suspend fun getAllList(): List<Molde>

@@ -28,18 +28,19 @@ data class SolicitudMantenimiento(
     val moldeId: Long,
     val solicitanteId: Long? = null,
     
-    val departamentoOrigen: String,
+    // Origen ampliado - ahora incluye Mant. Máquinas
+    val departamentoOrigen: String, // Producción, Calidad, Mantenimiento Máquinas
     val areaSolicitante: String = "",
     val turno: String = "",
     
     val tipo: String,
     val prioridad: String = "Media",
     
-    val subtipo: String,
+    val subtipo: String, // Pulido, Limpieza, Reparación, Cambio Conexión, Cambio Manguera
     
     val detalleConexion: String = "",
     val tipoConexionY: Boolean = false,
-    val calibreManguera: String = "",
+    val calibreManguera: String = "", // 8, 10, 12
     val cantidadMangueras: Int = 0,
     val longitudManguera: String = "",
     

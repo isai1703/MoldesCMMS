@@ -18,11 +18,7 @@
         android:theme="@style/Theme.MoldesCMMS"
         tools:targetApi="31">
         
-        <activity
-            android:name=".ui.LoginActivity"
-            android:exported="true"
-            android:screenOrientation="portrait"
-            tools:ignore="LockedOrientationActivity">
+        <activity android:name=".ui.LoginActivity" android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -41,9 +37,16 @@
         <activity android:name=".ui.RefaccionesListActivity" android:exported="false" />
         <activity android:name=".ui.RefaccionFormActivity" android:exported="false" />
         
-        <!-- Producción -->
+        <!-- Sistema de Solicitudes -->
+        <activity android:name=".ui.SolicitudesMantenimientoListActivity" android:exported="false" />
+        <activity android:name=".ui.SolicitudMantenimientoFormActivity" android:exported="false" />
+        <activity android:name=".ui.SolicitudDetalleActivity" android:exported="false" />
+        
+        <!-- Mantenimiento de Máquinas -->
         <activity android:name=".ui.MaquinasListActivity" android:exported="false" />
         <activity android:name=".ui.MaquinaFormActivity" android:exported="false" />
+        
+        <!-- Producción -->
         <activity android:name=".ui.ProductosListActivity" android:exported="false" />
         <activity android:name=".ui.ProductoFormActivity" android:exported="false" />
         
@@ -64,3 +67,53 @@
     </application>
 
 </manifest>
+
+        <!-- Activities para Operadores -->
+        <activity
+            android:name=".ui.OperadoresActivity"
+            android:label="Operadores"
+            android:parentActivityName=".ui.MainActivity" />
+            
+        <activity
+            android:name=".ui.OperadorFormActivity"
+            android:label="Formulario de Operador"
+            android:parentActivityName=".ui.OperadoresActivity" />
+
+        <!-- Activities para Registro de Producción -->
+        <activity
+            android:name=".ui.RegistroProduccionActivity"
+            android:label="Registros de Producción"
+            android:parentActivityName=".ui.MainActivity" />
+            
+        <activity
+            android:name=".ui.RegistroProduccionFormActivity"
+            android:label="Registro de Producción"
+            android:parentActivityName=".ui.RegistroProduccionActivity" />
+
+        <!-- Activities para Requerimientos de Insumos -->
+        <activity
+            android:name=".ui.RequerimientosInsumoActivity"
+            android:label="Requerimientos de Insumos"
+            android:parentActivityName=".ui.MainActivity" />
+            
+        <activity
+            android:name=".ui.RequerimientoInsumoFormActivity"
+            android:label="Nuevo Requerimiento"
+            android:parentActivityName=".ui.RequerimientosInsumoActivity" />
+            
+        <activity
+            android:name=".ui.RequerimientoInsumoDetailActivity"
+            android:label="Detalle de Requerimiento"
+            android:parentActivityName=".ui.RequerimientosInsumoActivity" />
+
+        <!-- Activities para Refacciones de Máquinas -->
+        <activity
+            android:name=".ui.RefaccionesMaquinaActivity"
+            android:label="Refacciones de Máquinas"
+            android:parentActivityName=".ui.MainActivity" />
+            
+        <activity
+            android:name=".ui.RefaccionMaquinaFormActivity"
+            android:label="Formulario de Refacción"
+            android:parentActivityName=".ui.RefaccionesMaquinaActivity" />
+
