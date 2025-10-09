@@ -112,6 +112,7 @@ class RefaccionMaquinaFormActivity : AppCompatActivity() {
         val stockMaximo = findViewById<EditText>(R.id.et_stock_maximo).text.toString().toIntOrNull() ?: 0
         
         val refaccion = RefaccionMaquina(
+            codigo = codigoRefaccion,
             id = if (isEditMode) refaccionId else 0,
             codigoRefaccion = codigo,
             nombre = nombre,

@@ -48,10 +48,6 @@ class RegistroProduccionFormActivity : AppCompatActivity() {
         setupDateTimePickers()
         setupCalculos()
         
-        if (isEditMode) {
-            loadRegistro()
-        }
-        
         findViewById<Button>(R.id.btn_save_registro).setOnClickListener {
             saveRegistro()
         }
@@ -63,13 +59,16 @@ class RegistroProduccionFormActivity : AppCompatActivity() {
     
     private fun setupSpinners() {
         lifecycleScope.launch {
-            operadores.clear()
-            operadores.addAll(database.operadorDao().getAllActivos().collect { ops -> operadores.addAll(ops) })
-            val operadorNames = operadores.map { "${it.numeroEmpleado} - ${it.nombreCompleto}" }
-            val operadorAdapter = ArrayAdapter(this@RegistroProduccionFormActivity,
-                android.R.layout.simple_spinner_item, operadorNames)
-            operadorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            findViewById<Spinner>(R.id.sp_operador_registro).adapter = operadorAdapter
+            // Cargar operadores
+            database.operadorDao().getAllActivos().collect { ops ->
+                operadores.clear()
+                operadores.addAll(ops)
+                val operadorNames = operadores.map { "${it.numeroEmpleado} - ${it.nombreCompleto}" }
+                val operadorAdapter = ArrayAdapter(this@RegistroProduccionFormActivity,
+                    android.R.layout.simple_spinner_item, operadorNames)
+                operadorAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+                findViewById<Spinner>(R.id.sp_operador_registro)?.adapter = operadorAdapter
+            }
         }
         
         lifecycleScope.launch {
@@ -79,7 +78,7 @@ class RegistroProduccionFormActivity : AppCompatActivity() {
             val maquinaAdapter = ArrayAdapter(this@RegistroProduccionFormActivity,
                 android.R.layout.simple_spinner_item, maquinaNames)
             maquinaAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            findViewById<Spinner>(R.id.sp_maquina_registro).adapter = maquinaAdapter
+            findViewById<Spinner>(R.id.sp_maquina_registro)?.adapter = maquinaAdapter
         }
         
         lifecycleScope.launch {
@@ -89,41 +88,41 @@ class RegistroProduccionFormActivity : AppCompatActivity() {
             val moldeAdapter = ArrayAdapter(this@RegistroProduccionFormActivity,
                 android.R.layout.simple_spinner_item, moldeNames)
             moldeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-            findViewById<Spinner>(R.id.sp_molde_registro).adapter = moldeAdapter
+            findViewById<Spinner>(R.id.sp_molde_registro)?.adapter = moldeAdapter
         }
         
         val turnos = arrayOf("Matutino", "Vespertino", "Nocturno")
         val turnoAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, turnos)
         turnoAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        findViewById<Spinner>(R.id.sp_turno_registro).adapter = turnoAdapter
+        findViewById<Spinner>(R.id.sp_turno_registro)?.adapter = turnoAdapter
     }
     
     private fun setupDateTimePickers() {
-        findViewById<Button>(R.id.btn_fecha_inicio).setOnClickListener {
+        findViewById<Button>(R.id.btn_fecha_inicio)?.setOnClickListener {
             showDateTimePicker { timestamp ->
                 fechaInicio = timestamp
-                findViewById<TextView>(R.id.tv_fecha_inicio).text = dateFormat.format(Date(timestamp))
+                findViewById<TextView>(R.id.tv_fecha_inicio)?.text = dateFormat.format(Date(timestamp))
                 calcularTiempoTotal()
             }
         }
         
-        findViewById<Button>(R.id.btn_fecha_fin).setOnClickListener {
+        findViewById<Button>(R.id.btn_fecha_fin)?.setOnClickListener {
             showDateTimePicker { timestamp ->
                 fechaFin = timestamp
-                findViewById<TextView>(R.id.tv_fecha_fin).text = dateFormat.format(Date(timestamp))
+                findViewById<TextView>(R.id.tv_fecha_fin)?.text = dateFormat.format(Date(timestamp))
                 calcularTiempoTotal()
             }
         }
         
-        findViewById<TextView>(R.id.tv_fecha_inicio).text = dateFormat.format(Date(fechaInicio))
+        findViewById<TextView>(R.id.tv_fecha_inicio)?.text = dateFormat.format(Date(fechaInicio))
     }
     
     private fun setupCalculos() {
         val etPiezasProducidas = findViewById<EditText>(R.id.et_piezas_producidas)
         val etPiezasDefectuosas = findViewById<EditText>(R.id.et_piezas_defectuosas)
         
-        etPiezasProducidas.setOnFocusChangeListener { _, _ -> calcularRendimiento() }
-        etPiezasDefectuosas.setOnFocusChangeListener { _, _ -> calcularRendimiento() }
+        etPiezasProducidas?.setOnFocusChangeListener { _, _ -> calcularRendimiento() }
+        etPiezasDefectuosas?.setOnFocusChangeListener { _, _ -> calcularRendimiento() }
     }
     
     private fun showDateTimePicker(onDateTimeSet: (Long) -> Unit) {
@@ -147,30 +146,21 @@ class RegistroProduccionFormActivity : AppCompatActivity() {
             val horas = duracionMs / (1000 * 60 * 60)
             val minutos = (duracionMs % (1000 * 60 * 60)) / (1000 * 60)
             
-            findViewById<TextView>(R.id.tv_tiempo_total).text = "${horas}h ${minutos}m"
-            findViewById<TextView>(R.id.tv_tiempo_total).visibility = View.VISIBLE
+            findViewById<TextView>(R.id.tv_tiempo_total)?.text = "${horas}h ${minutos}m"
+            findViewById<TextView>(R.id.tv_tiempo_total)?.visibility = View.VISIBLE
         }
     }
     
     private fun calcularRendimiento() {
-        val producidas = findViewById<EditText>(R.id.et_piezas_producidas).text.toString().toIntOrNull() ?: 0
-        val defectuosas = findViewById<EditText>(R.id.et_piezas_defectuosas).text.toString().toIntOrNull() ?: 0
+        val producidas = findViewById<EditText>(R.id.et_piezas_producidas)?.text.toString().toIntOrNull() ?: 0
+        val defectuosas = findViewById<EditText>(R.id.et_piezas_defectuosas)?.text.toString().toIntOrNull() ?: 0
         
         if (producidas > 0) {
             val porcentajeDefectos = (defectuosas.toFloat() / producidas * 100)
             val eficiencia = 100 - porcentajeDefectos
             
-            findViewById<TextView>(R.id.tv_eficiencia).text = "Eficiencia: ${"%.2f".format(eficiencia)}%"
-            findViewById<TextView>(R.id.tv_eficiencia).visibility = View.VISIBLE
-        }
-    }
-    
-    private fun loadRegistro() {
-        lifecycleScope.launch {
-            val registro = database.registroProduccionDao().getById(registroId)
-            registro?.let {
-                // TODO: Cargar datos del registro
-            }
+            findViewById<TextView>(R.id.tv_eficiencia)?.text = "Eficiencia: ${"%.2f".format(eficiencia)}%"
+            findViewById<TextView>(R.id.tv_eficiencia)?.visibility = View.VISIBLE
         }
     }
     
@@ -184,7 +174,7 @@ class RegistroProduccionFormActivity : AppCompatActivity() {
         val spMaquina = findViewById<Spinner>(R.id.sp_maquina_registro)
         val spMolde = findViewById<Spinner>(R.id.sp_molde_registro)
         
-        val piezasProducidas = findViewById<EditText>(R.id.et_piezas_producidas).text.toString().toIntOrNull()
+        val piezasProducidas = findViewById<EditText>(R.id.et_piezas_producidas)?.text.toString().toIntOrNull()
         
         if (piezasProducidas == null || piezasProducidas <= 0) {
             Toast.makeText(this, "Ingrese cantidad de piezas producidas", Toast.LENGTH_SHORT).show()
@@ -200,10 +190,10 @@ class RegistroProduccionFormActivity : AppCompatActivity() {
             fechaInicio = fechaInicio,
             fechaFin = fechaFin,
             piezasProducidas = piezasProducidas,
-            piezasDefectuosas = findViewById<EditText>(R.id.et_piezas_defectuosas).text.toString().toIntOrNull() ?: 0,
-            tiempoParoMinutos = findViewById<EditText>(R.id.et_tiempo_paro).text.toString().toIntOrNull() ?: 0,
-            motivoParo = findViewById<EditText>(R.id.et_motivo_paro).text.toString(),
-            observaciones = findViewById<EditText>(R.id.et_observaciones_registro).text.toString()
+            piezasDefectuosas = findViewById<EditText>(R.id.et_piezas_defectuosas)?.text.toString().toIntOrNull() ?: 0,
+            tiempoParoMinutos = findViewById<EditText>(R.id.et_tiempo_paro)?.text.toString().toIntOrNull() ?: 0,
+            motivoParo = findViewById<EditText>(R.id.et_motivo_paro)?.text.toString(),
+            observaciones = findViewById<EditText>(R.id.et_observaciones_registro)?.text.toString()
         )
         
         lifecycleScope.launch {

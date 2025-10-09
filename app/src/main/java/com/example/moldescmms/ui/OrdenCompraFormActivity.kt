@@ -49,7 +49,6 @@ class OrdenCompraFormActivity : AppCompatActivity() {
             orden?.let {
                 findViewById<EditText>(R.id.et_numero_orden).setText(it.numeroOrden)
                 findViewById<EditText>(R.id.et_proveedor).setText(it.proveedor)
-                findViewById<EditText>(R.id.et_items).setText(it.items)
                 findViewById<EditText>(R.id.et_total).setText(it.total.toString())
                 findViewById<EditText>(R.id.et_solicitado_por).setText(it.solicitadoPor)
                 findViewById<EditText>(R.id.et_observaciones).setText(it.observaciones)
@@ -71,7 +70,6 @@ class OrdenCompraFormActivity : AppCompatActivity() {
             numeroOrden = numeroOrden,
             proveedor = proveedor,
             estado = findViewById<Spinner>(R.id.sp_estado).selectedItem.toString(),
-            items = findViewById<EditText>(R.id.et_items).text.toString(),
             total = findViewById<EditText>(R.id.et_total).text.toString().toDoubleOrNull() ?: 0.0,
             solicitadoPor = findViewById<EditText>(R.id.et_solicitado_por).text.toString(),
             observaciones = findViewById<EditText>(R.id.et_observaciones).text.toString()

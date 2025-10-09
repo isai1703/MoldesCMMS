@@ -6,37 +6,19 @@ import kotlinx.coroutines.flow.Flow
 
 class MoldeRepository(private val moldeDao: MoldeDao) {
     
-    val allMoldes: Flow<List<Molde>> = moldeDao.getAll()
+    fun getAllMoldes(): Flow<List<Molde>> = moldeDao.getAll()
     
-    suspend fun insert(molde: Molde): Long {
-        return moldeDao.insert(molde)
-    }
+    fun getMoldesByEstado(estado: String): Flow<List<Molde>> = moldeDao.getByEstado(estado)
     
-    suspend fun update(molde: Molde) {
-        moldeDao.update(molde)
-    }
+    suspend fun getMoldeById(id: Long): Molde? = moldeDao.getById(id)
     
-    suspend fun delete(molde: Molde) {
-        moldeDao.delete(molde)
-    }
+    suspend fun getMoldeByCodigo(codigo: String): Molde? = moldeDao.getByCodigo(codigo)
     
-    suspend fun getById(id: Long): Molde? {
-        return moldeDao.getById(id)
-    }
+    suspend fun insertMolde(molde: Molde): Long = moldeDao.insert(molde)
     
-    suspend fun getByCodigo(codigo: String): Molde? {
-        return moldeDao.getByCodigo(codigo)
-    }
+    suspend fun updateMolde(molde: Molde) = moldeDao.update(molde)
     
-    fun getByEstado(estado: String): Flow<List<Molde>> {
-        return moldeDao.getByEstado(estado)
-    }
+    suspend fun deleteMolde(molde: Molde) = moldeDao.delete(molde)
     
-    fun search(query: String): Flow<List<Molde>> {
-        return moldeDao.search(query)
-    }
-    
-    suspend fun getCount(): Int {
-        return moldeDao.getCount()
-    }
+    suspend fun getMoldesCount(): Int = moldeDao.getCount()
 }

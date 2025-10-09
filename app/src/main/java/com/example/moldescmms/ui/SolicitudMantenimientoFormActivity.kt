@@ -43,7 +43,7 @@ class SolicitudMantenimientoFormActivity : AppCompatActivity() {
         
         lifecycleScope.launch {
             moldes.clear()
-            moldes.addAll(database.moldeDao().getAllList())
+            moldes.addAll(database.moldeDao().getAllMoldesList())
             
             val moldesNames = moldes.map { "${it.codigo} - ${it.nombre}" }
             val moldeAdapter = ArrayAdapter(this@SolicitudMantenimientoFormActivity, 
