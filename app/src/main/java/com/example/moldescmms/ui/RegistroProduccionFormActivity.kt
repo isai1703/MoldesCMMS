@@ -64,7 +64,7 @@ class RegistroProduccionFormActivity : AppCompatActivity() {
     private fun setupSpinners() {
         lifecycleScope.launch {
             operadores.clear()
-            operadores.addAll(database.operadorDao().getAllActivos().collect { it })
+            operadores.addAll(database.operadorDao().getAllActivos().collect { ops -> operadores.addAll(ops) })
             val operadorNames = operadores.map { "${it.numeroEmpleado} - ${it.nombreCompleto}" }
             val operadorAdapter = ArrayAdapter(this@RegistroProduccionFormActivity,
                 android.R.layout.simple_spinner_item, operadorNames)
@@ -74,7 +74,7 @@ class RegistroProduccionFormActivity : AppCompatActivity() {
         
         lifecycleScope.launch {
             maquinas.clear()
-            maquinas.addAll(database.maquinaDao().getAllList())
+            maquinas.addAll(database.maquinaDao().getAllMaquinasList())
             val maquinaNames = maquinas.map { "${it.codigo} - ${it.nombre}" }
             val maquinaAdapter = ArrayAdapter(this@RegistroProduccionFormActivity,
                 android.R.layout.simple_spinner_item, maquinaNames)
@@ -84,7 +84,7 @@ class RegistroProduccionFormActivity : AppCompatActivity() {
         
         lifecycleScope.launch {
             moldes.clear()
-            moldes.addAll(database.moldeDao().getAllList())
+            moldes.addAll(database.moldeDao().getAllMoldesList())
             val moldeNames = moldes.map { "${it.codigo} - ${it.nombre}" }
             val moldeAdapter = ArrayAdapter(this@RegistroProduccionFormActivity,
                 android.R.layout.simple_spinner_item, moldeNames)

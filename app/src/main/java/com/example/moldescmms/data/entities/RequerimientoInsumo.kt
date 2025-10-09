@@ -7,40 +7,45 @@ import androidx.room.PrimaryKey
 
 @Entity(
     tableName = "requerimientos_insumos",
-    foreignKeys = [
-        ForeignKey(entity = Producto::class, parentColumns = ["id"],
-                   childColumns = ["productoId"], onDelete = ForeignKey.CASCADE)
-    ],
-    indices = [Index(value = ["productoId"]), Index(value = ["estado"])]
+    indices = [Index(value = ["estado"]), Index(value = ["fechaRequerida"])]
 )
 data class RequerimientoInsumo(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
     
-    val numeroRequerimiento: String,
-    val productoId: Long,
-    val solicitadoPor: String, // Supervisor
-    val departamento: String = "Material Estas",
+    val numeroRequerimiento: String = "",
+    val productoId: Long? = null,
     
-    // Insumos necesarios
-    val materiaPrima: String = "", // Tipo y cantidad
-    val cantidadMateriaPrima: Double = 0.0, // kg
-    val pigmento: String = "",
-    val cantidadPigmento: Double = 0.0,
-    val tapas: String = "",
-    val cantidadTapas: Int = 0,
-    val asasPlasticas: Int = 0,
-    val asasMetal: Int = 0,
-    val otrosInsumos: String = "",
+    val tipoInsumo: String,
+    val articulo: String,
+    val descripcion: String = "",
+    val cantidad: Int,
+    val unidadMedida: String = "",
     
-    val cantidadProducir: Int = 0,
+    val areaSolicitante: String,
+    val solicitadoPor: String,
+    
     val fechaRequerida: Long,
     val prioridad: String = "Media",
     
-    val estado: String = "Pendiente", // Pendiente, Aprobado, En Preparación, Completado
-    val preparadoPor: Long? = null, // ID del operador de Material Estas
-    val fechaPreparacion: Long? = null,
+    val justificacion: String = "",
+    
+    val costoEstimado: Double = 0.0,
+    val proveedorSugerido: String = "",
+    val especificacionesTecnicas: String = "",
+    
+    val estado: String = "Pendiente",
+    val aprobadoPor: String = "",
+    val fechaAprobacion: Long? = null,
+    val observacionesAprobador: String = "",
+    
+    val motivoRechazo: String = "",
+    
+    val fechaCompra: Long? = null,
+    val fechaEntrega: Long? = null,
     
     val observaciones: String = "",
-    val fechaCreacion: Long = System.currentTimeMillis()
+    
+    val fechaCreacion: Long = System.currentTimeMillis(),
+    val fechaActualizacion: Long = System.currentTimeMillis()
 )

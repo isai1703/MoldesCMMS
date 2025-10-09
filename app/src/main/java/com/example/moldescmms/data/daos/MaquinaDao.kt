@@ -6,17 +6,14 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface MaquinaDao {
-    @Query("SELECT * FROM maquinas ORDER BY nombre ASC")
+    @Query("SELECT * FROM maquinas ORDER BY codigo ASC")
     fun getAll(): Flow<List<Maquina>>
     
     @Query("SELECT * FROM maquinas WHERE id = :id")
     suspend fun getById(id: Long): Maquina?
     
-    @Query("SELECT * FROM maquinas WHERE departamentoId = :departamentoId")
-    fun getByDepartamento(departamentoId: Long): Flow<List<Maquina>>
-    
-    @Query("SELECT * FROM maquinas WHERE estado = :estado")
-    fun getByEstado(estado: String): Flow<List<Maquina>>
+    @Query("SELECT * FROM maquinas WHERE codigo = :codigo")
+    suspend fun getByCodigo(codigo: String): Maquina?
     
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(maquina: Maquina): Long
@@ -26,7 +23,7 @@ interface MaquinaDao {
     
     @Delete
     suspend fun delete(maquina: Maquina)
-}
-
+    
     @Query("SELECT * FROM maquinas ORDER BY codigo ASC")
-    suspend fun getAllList(): List<Maquina>
+    suspend fun getAllMaquinasList(): List<Maquina>
+}
