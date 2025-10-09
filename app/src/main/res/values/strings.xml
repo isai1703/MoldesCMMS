@@ -1,14 +1,3 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">MoldesCMMS</string>
-    <string name="login">Iniciar Sesión</string>
-    <string name="username">Usuario</string>
-    <string name="password">Contraseña</string>
-    <string name="welcome">Bienvenido</string>
-    <string name="taller_moldes">Taller de Moldes</string>
-    <string name="mantenimiento_maquinas">Mantenimiento de Máquinas</string>
-    <string name="produccion">Producción</string>
-    <string name="almacen">Almacén</string>
-    <string name="calidad">Calidad</string>
-    <string name="compras">Compras</string>
+    <string name="app_name">Moldes CMMS</string>
 </resources>

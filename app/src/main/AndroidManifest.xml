@@ -1,119 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
-
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"
-        android:maxSdkVersion="32"
-        tools:ignore="ScopedStorage" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"
-        android:maxSdkVersion="32" />
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
     <application
-        android:name=".MoldesApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.MoldesCMMS"
-        tools:targetApi="31">
+        android:theme="@style/Theme.MoldesCMMS">
         
-        <activity android:name=".ui.LoginActivity" android:exported="true">
+        <activity
+            android:name=".ui.MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
-        <activity android:name=".ui.MainActivity" android:exported="false" />
-        
-        <!-- Taller de Moldes -->
-        <activity android:name=".ui.MoldesListActivity" android:exported="false" />
-        <activity android:name=".ui.MoldeFormActivity" android:exported="false" />
-        <activity android:name=".ui.MantenimientosListActivity" android:exported="false" />
-        <activity android:name=".ui.MantenimientoFormActivity" android:exported="false" />
-        <activity android:name=".ui.HerramientasListActivity" android:exported="false" />
-        <activity android:name=".ui.HerramientaFormActivity" android:exported="false" />
-        <activity android:name=".ui.RefaccionesListActivity" android:exported="false" />
-        <activity android:name=".ui.RefaccionFormActivity" android:exported="false" />
-        
-        <!-- Sistema de Solicitudes -->
-        <activity android:name=".ui.SolicitudesMantenimientoListActivity" android:exported="false" />
-        <activity android:name=".ui.SolicitudMantenimientoFormActivity" android:exported="false" />
-        <activity android:name=".ui.SolicitudDetalleActivity" android:exported="false" />
-        
-        <!-- Mantenimiento de Máquinas -->
-        <activity android:name=".ui.MaquinasListActivity" android:exported="false" />
-        <activity android:name=".ui.MaquinaFormActivity" android:exported="false" />
-        
-        <!-- Producción -->
-        <activity android:name=".ui.ProductosListActivity" android:exported="false" />
-        <activity android:name=".ui.ProductoFormActivity" android:exported="false" />
-        
-        <!-- Almacén -->
-        <activity android:name=".ui.InventarioActivity" android:exported="false" />
-        
-        <!-- Calidad -->
-        <activity android:name=".ui.InspeccionesListActivity" android:exported="false" />
-        <activity android:name=".ui.InspeccionFormActivity" android:exported="false" />
-        
-        <!-- Compras -->
-        <activity android:name=".ui.OrdenesCompraListActivity" android:exported="false" />
-        <activity android:name=".ui.OrdenCompraFormActivity" android:exported="false" />
-        
-        <!-- Reportes -->
-        <activity android:name=".ui.EstadisticasActivity" android:exported="false" />
-            
-    </application>
 
-</manifest>
-
-        <!-- Activities para Operadores -->
         <activity
             android:name=".ui.OperadoresActivity"
-            android:label="Operadores"
             android:parentActivityName=".ui.MainActivity" />
             
         <activity
             android:name=".ui.OperadorFormActivity"
-            android:label="Formulario de Operador"
             android:parentActivityName=".ui.OperadoresActivity" />
 
-        <!-- Activities para Registro de Producción -->
         <activity
             android:name=".ui.RegistroProduccionActivity"
-            android:label="Registros de Producción"
             android:parentActivityName=".ui.MainActivity" />
             
         <activity
             android:name=".ui.RegistroProduccionFormActivity"
-            android:label="Registro de Producción"
             android:parentActivityName=".ui.RegistroProduccionActivity" />
 
-        <!-- Activities para Requerimientos de Insumos -->
         <activity
             android:name=".ui.RequerimientosInsumoActivity"
-            android:label="Requerimientos de Insumos"
             android:parentActivityName=".ui.MainActivity" />
             
         <activity
             android:name=".ui.RequerimientoInsumoFormActivity"
-            android:label="Nuevo Requerimiento"
             android:parentActivityName=".ui.RequerimientosInsumoActivity" />
             
         <activity
             android:name=".ui.RequerimientoInsumoDetailActivity"
-            android:label="Detalle de Requerimiento"
             android:parentActivityName=".ui.RequerimientosInsumoActivity" />
 
-        <!-- Activities para Refacciones de Máquinas -->
         <activity
             android:name=".ui.RefaccionesMaquinaActivity"
-            android:label="Refacciones de Máquinas"
             android:parentActivityName=".ui.MainActivity" />
             
         <activity
             android:name=".ui.RefaccionMaquinaFormActivity"
-            android:label="Formulario de Refacción"
             android:parentActivityName=".ui.RefaccionesMaquinaActivity" />
 
+    </application>
+
+</manifest>
