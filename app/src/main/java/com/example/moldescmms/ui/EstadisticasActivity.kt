@@ -1,12 +1,9 @@
 package com.example.moldescmms.ui
 
 import android.os.Bundle
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.lifecycleScope
 import com.example.moldescmms.R
 import com.example.moldescmms.data.AppDatabase
-import kotlinx.coroutines.launch
 
 class EstadisticasActivity : AppCompatActivity() {
     
@@ -20,15 +17,6 @@ class EstadisticasActivity : AppCompatActivity() {
         supportActionBar?.title = "Estadísticas"
         
         database = AppDatabase.getDatabase(this)
-        
-        loadEstadisticas()
-    }
-    
-    private fun loadEstadisticas() {
-        lifecycleScope.launch {
-            val totalMoldes = database.moldeDao().getCount()
-            findViewById<TextView>(R.id.tv_total_moldes)?.text = "Total Moldes: $totalMoldes"
-        }
     }
     
     override fun onSupportNavigateUp(): Boolean {

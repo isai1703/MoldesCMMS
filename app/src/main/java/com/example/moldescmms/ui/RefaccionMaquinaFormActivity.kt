@@ -98,11 +98,11 @@ class RefaccionMaquinaFormActivity : AppCompatActivity() {
     
     private fun saveRefaccion() {
         val nombre = findViewById<EditText>(R.id.et_nombre_refaccion).text.toString()
-        val codigo = findViewById<EditText>(R.id.et_codigo_refaccion).text.toString()
+        val codigoRef = findViewById<EditText>(R.id.et_codigo_refaccion).text.toString()
         val numeroParte = findViewById<EditText>(R.id.et_numero_parte).text.toString()
         val modeloMaquina = findViewById<EditText>(R.id.et_modelo_maquina).text.toString()
         
-        if (nombre.isEmpty() || codigo.isEmpty() || numeroParte.isEmpty()) {
+        if (nombre.isEmpty() || codigoRef.isEmpty() || numeroParte.isEmpty()) {
             Toast.makeText(this, "Complete los campos obligatorios", Toast.LENGTH_SHORT).show()
             return
         }
@@ -112,9 +112,9 @@ class RefaccionMaquinaFormActivity : AppCompatActivity() {
         val stockMaximo = findViewById<EditText>(R.id.et_stock_maximo).text.toString().toIntOrNull() ?: 0
         
         val refaccion = RefaccionMaquina(
-            codigo = codigoRefaccion,
             id = if (isEditMode) refaccionId else 0,
-            codigoRefaccion = codigo,
+            codigo = codigoRef,
+            codigoRefaccion = codigoRef,
             nombre = nombre,
             descripcion = findViewById<EditText>(R.id.et_descripcion_refaccion).text.toString(),
             numeroParte = numeroParte,
