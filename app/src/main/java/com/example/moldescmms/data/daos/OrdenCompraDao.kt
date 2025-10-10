@@ -12,12 +12,30 @@ interface OrdenCompraDao {
     @Query("SELECT * FROM ordenes_compra WHERE id = :id")
     suspend fun getById(id: Long): OrdenCompra?
     
-    @Query("SELECT * FROM ordenes_compra WHERE estado = :estado")
+    @Query("SELECT * FROM ordenes_compra WHERE estado = :estado ORDER BY fechaOrden DESC")
     fun getByEstado(estado: String): Flow<List<OrdenCompra>>
+    
+    @Query("SELECT * FROM ordenes_compra WHERE nivelUrgencia = :urgencia ORDER BY fechaOrden DESC")
+    fun getByUrgencia(urgencia: String): Flow<List<OrdenCompra>>
+    
+    @Query("SELECT * FROM ordenes_compra WHERE departamentoSolicitante = :departamento ORDER BY fechaOrden DESC")
+    fun getByDepartamento(departamento: String): Flow<List<OrdenCompra>>
+    
+    @Query("SELECT * FROM ordenes_compra WHERE proveedor LIKE '%' || :proveedor || '%' ORDER BY fechaOrden DESC")
+    fun getByProveedor(proveedor: String): Flow<List<OrdenCompra>>
+    
+    @Query("SELECT * FROM ordenes_compra WHERE fechaOrden BETWEEN :inicio AND :fin ORDER BY fechaOrden DESC")
+    fun getByRangoFecha(inicio: Long, fin: Long): Flow<List<OrdenCompra>>
+    
+    @Query("SELECT DISTINCT proveedor FROM ordenes_compra ORDER BY proveedor ASC")
+    suspend fun getAllProveedores(): List<String>
     
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(orden: OrdenCompra): Long
     
     @Update
     suspend fun update(orden: OrdenCompra)
+    
+    @Delete
+    suspend fun delete(orden: OrdenCompra)
 }

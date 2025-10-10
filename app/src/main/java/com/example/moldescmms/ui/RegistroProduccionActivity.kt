@@ -2,8 +2,6 @@ package com.example.moldescmms.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,7 +16,6 @@ class RegistroProduccionActivity : AppCompatActivity() {
     
     private lateinit var database: AppDatabase
     private lateinit var adapter: RegistroProduccionAdapter
-    private lateinit var recyclerView: RecyclerView
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,19 +26,17 @@ class RegistroProduccionActivity : AppCompatActivity() {
         
         database = AppDatabase.getDatabase(this)
         
-        recyclerView = findViewById(R.id.rv_registros_produccion)
+        val recyclerView = findViewById<RecyclerView>(R.id.rv_registros_produccion)
         recyclerView.layoutManager = LinearLayoutManager(this)
         
-        adapter = RegistroProduccionAdapter(
-            onItemClick = { registro ->
-                val intent = Intent(this, RegistroProduccionFormActivity::class.java)
-                intent.putExtra("REGISTRO_ID", registro.id)
-                startActivity(intent)
-            }
-        )
+        adapter = RegistroProduccionAdapter { registro ->
+            val intent = Intent(this, RegistroProduccionFormActivity::class.java)
+            intent.putExtra("REGISTRO_ID", registro.id)
+            startActivity(intent)
+        }
         recyclerView.adapter = adapter
         
-        findViewById<FloatingActionButton>(R.id.fab_add_registro).setOnClickListener {
+        findViewById<FloatingActionButton>(R.id.fab_add_registro)?.setOnClickListener {
             startActivity(Intent(this, RegistroProduccionFormActivity::class.java))
         }
         
@@ -55,32 +50,18 @@ class RegistroProduccionActivity : AppCompatActivity() {
     
     private fun loadRegistros() {
         lifecycleScope.launch {
-            database.registroProduccionDao().getAll().collect { registros ->
-                adapter.submitList(registros)
+            try {
+                database.registroProduccionDao().getAll().collect { registros ->
+                    adapter.submitList(registros)
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
             }
         }
     }
     
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_registros, menu)
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
         return true
-    }
-    
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            android.R.id.home -> {
-                finish()
-                true
-            }
-            R.id.action_filter_fecha -> {
-                // TODO: Filtro por fecha
-                true
-            }
-            R.id.action_estadisticas -> {
-                // TODO: Ver estadísticas
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
     }
 }

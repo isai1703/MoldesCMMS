@@ -2,8 +2,6 @@ package com.example.moldescmms.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,7 +16,6 @@ class OperadoresActivity : AppCompatActivity() {
     
     private lateinit var database: AppDatabase
     private lateinit var adapter: OperadorAdapter
-    private lateinit var recyclerView: RecyclerView
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,19 +26,17 @@ class OperadoresActivity : AppCompatActivity() {
         
         database = AppDatabase.getDatabase(this)
         
-        recyclerView = findViewById(R.id.rv_operadores)
+        val recyclerView = findViewById<RecyclerView>(R.id.rv_operadores)
         recyclerView.layoutManager = LinearLayoutManager(this)
         
-        adapter = OperadorAdapter(
-            onItemClick = { operador ->
-                val intent = Intent(this, OperadorFormActivity::class.java)
-                intent.putExtra("OPERADOR_ID", operador.id)
-                startActivity(intent)
-            }
-        )
+        adapter = OperadorAdapter { operador ->
+            val intent = Intent(this, OperadorFormActivity::class.java)
+            intent.putExtra("OPERADOR_ID", operador.id)
+            startActivity(intent)
+        }
         recyclerView.adapter = adapter
         
-        findViewById<FloatingActionButton>(R.id.fab_add_operador).setOnClickListener {
+        findViewById<FloatingActionButton>(R.id.fab_add_operador)?.setOnClickListener {
             startActivity(Intent(this, OperadorFormActivity::class.java))
         }
         
@@ -55,32 +50,18 @@ class OperadoresActivity : AppCompatActivity() {
     
     private fun loadOperadores() {
         lifecycleScope.launch {
-            database.operadorDao().getAllActivos().collect { operadores ->
-                adapter.submitList(operadores)
+            try {
+                database.operadorDao().getAllActivos().collect { operadores ->
+                    adapter.submitList(operadores)
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
             }
         }
     }
     
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_operadores, menu)
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
         return true
-    }
-    
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            android.R.id.home -> {
-                finish()
-                true
-            }
-            R.id.action_filter_turno -> {
-                // TODO: Implementar filtro por turno
-                true
-            }
-            R.id.action_filter_departamento -> {
-                // TODO: Implementar filtro por departamento
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
     }
 }

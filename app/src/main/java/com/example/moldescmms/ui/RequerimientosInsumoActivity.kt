@@ -2,8 +2,6 @@ package com.example.moldescmms.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,7 +16,6 @@ class RequerimientosInsumoActivity : AppCompatActivity() {
     
     private lateinit var database: AppDatabase
     private lateinit var adapter: RequerimientoInsumoAdapter
-    private lateinit var recyclerView: RecyclerView
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,19 +26,17 @@ class RequerimientosInsumoActivity : AppCompatActivity() {
         
         database = AppDatabase.getDatabase(this)
         
-        recyclerView = findViewById(R.id.rv_requerimientos)
+        val recyclerView = findViewById<RecyclerView>(R.id.rv_requerimientos)
         recyclerView.layoutManager = LinearLayoutManager(this)
         
-        adapter = RequerimientoInsumoAdapter(
-            onItemClick = { requerimiento ->
-                val intent = Intent(this, RequerimientoInsumoDetailActivity::class.java)
-                intent.putExtra("REQUERIMIENTO_ID", requerimiento.id)
-                startActivity(intent)
-            }
-        )
+        adapter = RequerimientoInsumoAdapter { requerimiento ->
+            val intent = Intent(this, RequerimientoInsumoDetailActivity::class.java)
+            intent.putExtra("REQUERIMIENTO_ID", requerimiento.id)
+            startActivity(intent)
+        }
         recyclerView.adapter = adapter
         
-        findViewById<FloatingActionButton>(R.id.fab_add_requerimiento).setOnClickListener {
+        findViewById<FloatingActionButton>(R.id.fab_add_requerimiento)?.setOnClickListener {
             startActivity(Intent(this, RequerimientoInsumoFormActivity::class.java))
         }
         
@@ -55,44 +50,18 @@ class RequerimientosInsumoActivity : AppCompatActivity() {
     
     private fun loadRequerimientos() {
         lifecycleScope.launch {
-            database.requerimientoInsumoDao().getAll().collect { requerimientos ->
-                adapter.submitList(requerimientos)
+            try {
+                database.requerimientoInsumoDao().getAll().collect { requerimientos ->
+                    adapter.submitList(requerimientos)
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
             }
         }
     }
     
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_requerimientos, menu)
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
         return true
-    }
-    
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            android.R.id.home -> {
-                finish()
-                true
-            }
-            R.id.action_filter_pendientes -> {
-                filterByEstado("Pendiente")
-                true
-            }
-            R.id.action_filter_aprobados -> {
-                filterByEstado("Aprobado")
-                true
-            }
-            R.id.action_filter_todos -> {
-                loadRequerimientos()
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
-    
-    private fun filterByEstado(estado: String) {
-        lifecycleScope.launch {
-            database.requerimientoInsumoDao().getByEstado(estado).collect { requerimientos ->
-                adapter.submitList(requerimientos)
-            }
-        }
     }
 }

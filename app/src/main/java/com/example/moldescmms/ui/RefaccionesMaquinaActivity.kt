@@ -2,8 +2,6 @@ package com.example.moldescmms.ui
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.Menu
-import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,7 +16,6 @@ class RefaccionesMaquinaActivity : AppCompatActivity() {
     
     private lateinit var database: AppDatabase
     private lateinit var adapter: RefaccionMaquinaAdapter
-    private lateinit var recyclerView: RecyclerView
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,19 +26,17 @@ class RefaccionesMaquinaActivity : AppCompatActivity() {
         
         database = AppDatabase.getDatabase(this)
         
-        recyclerView = findViewById(R.id.rv_refacciones_maquina)
+        val recyclerView = findViewById<RecyclerView>(R.id.rv_refacciones_maquina)
         recyclerView.layoutManager = LinearLayoutManager(this)
         
-        adapter = RefaccionMaquinaAdapter(
-            onItemClick = { refaccion ->
-                val intent = Intent(this, RefaccionMaquinaFormActivity::class.java)
-                intent.putExtra("REFACCION_ID", refaccion.id)
-                startActivity(intent)
-            }
-        )
+        adapter = RefaccionMaquinaAdapter { refaccion ->
+            val intent = Intent(this, RefaccionMaquinaFormActivity::class.java)
+            intent.putExtra("REFACCION_ID", refaccion.id)
+            startActivity(intent)
+        }
         recyclerView.adapter = adapter
         
-        findViewById<FloatingActionButton>(R.id.fab_add_refaccion_maquina).setOnClickListener {
+        findViewById<FloatingActionButton>(R.id.fab_add_refaccion_maquina)?.setOnClickListener {
             startActivity(Intent(this, RefaccionMaquinaFormActivity::class.java))
         }
         
@@ -55,40 +50,18 @@ class RefaccionesMaquinaActivity : AppCompatActivity() {
     
     private fun loadRefacciones() {
         lifecycleScope.launch {
-            database.refaccionMaquinaDao().getAll().collect { refacciones ->
-                adapter.submitList(refacciones)
+            try {
+                database.refaccionMaquinaDao().getAll().collect { refacciones ->
+                    adapter.submitList(refacciones)
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
             }
         }
     }
     
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu_refacciones_maquina, menu)
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
         return true
-    }
-    
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        return when (item.itemId) {
-            android.R.id.home -> {
-                finish()
-                true
-            }
-            R.id.action_bajo_stock -> {
-                showBajoStock()
-                true
-            }
-            R.id.action_todas -> {
-                loadRefacciones()
-                true
-            }
-            else -> super.onOptionsItemSelected(item)
-        }
-    }
-    
-    private fun showBajoStock() {
-        lifecycleScope.launch {
-            database.refaccionMaquinaDao().getBajoStock().collect { refacciones ->
-                adapter.submitList(refacciones)
-            }
-        }
     }
 }

@@ -15,34 +15,26 @@ import androidx.room.PrimaryKey
             onDelete = ForeignKey.CASCADE
         )
     ],
-    indices = [Index(value = ["moldeId"])]
+    indices = [Index(value = ["moldeId"]), Index(value = ["estado"])]
 )
 data class Mantenimiento(
     @PrimaryKey(autoGenerate = true)
     val id: Long = 0,
     
     val moldeId: Long,
-    val responsableId: Long? = null,
-    
     val tipo: String,
-    val subtipo: String = "",
+    val descripcion: String = "",
     
     val fechaProgramada: Long,
-    val fechaInicio: Long? = null,
-    val fechaFinalizacion: Long? = null,
+    val fechaRealizada: Long? = null,
     
+    val tecnicoAsignado: String = "",
     val estado: String = "Pendiente",
-    val prioridad: String = "Media",
     
-    val descripcion: String = "",
-    val trabajosRealizados: String = "",
     val observaciones: String = "",
+    val costoEstimado: Double = 0.0,
+    val costoReal: Double = 0.0,
     
-    val refaccionesUsadas: String = "",
-    val herramientasUsadas: String = "",
-    
-    val realizadoPor: String = "",
-    val supervisadoPor: String = "",
-    
-    val fechaCreacion: Long = System.currentTimeMillis()
+    val fechaCreacion: Long = System.currentTimeMillis(),
+    val fechaActualizacion: Long = System.currentTimeMillis()
 )

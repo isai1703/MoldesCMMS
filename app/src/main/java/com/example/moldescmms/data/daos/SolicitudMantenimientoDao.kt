@@ -12,20 +12,14 @@ interface SolicitudMantenimientoDao {
     @Query("SELECT * FROM solicitudes_mantenimiento WHERE id = :id")
     suspend fun getById(id: Long): SolicitudMantenimiento?
     
-    @Query("SELECT * FROM solicitudes_mantenimiento WHERE estado = :estado ORDER BY prioridad DESC, fechaSolicitud ASC")
+    @Query("SELECT * FROM solicitudes_mantenimiento WHERE estado = :estado ORDER BY fechaSolicitud DESC")
     fun getByEstado(estado: String): Flow<List<SolicitudMantenimiento>>
     
     @Query("SELECT * FROM solicitudes_mantenimiento WHERE departamentoOrigen = :departamento ORDER BY fechaSolicitud DESC")
     fun getByDepartamento(departamento: String): Flow<List<SolicitudMantenimiento>>
     
-    @Query("SELECT * FROM solicitudes_mantenimiento WHERE moldeId = :moldeId ORDER BY fechaSolicitud DESC")
-    fun getByMolde(moldeId: Long): Flow<List<SolicitudMantenimiento>>
-    
-    @Query("SELECT * FROM solicitudes_mantenimiento WHERE estado = 'Pendiente' OR estado = 'Aprobada' ORDER BY prioridad DESC")
-    fun getPendientes(): Flow<List<SolicitudMantenimiento>>
-    
-    @Query("SELECT COUNT(*) FROM solicitudes_mantenimiento WHERE estado = 'Pendiente'")
-    suspend fun getPendientesCount(): Int
+    @Query("SELECT * FROM solicitudes_mantenimiento WHERE prioridad = :prioridad ORDER BY fechaSolicitud DESC")
+    fun getByPrioridad(prioridad: String): Flow<List<SolicitudMantenimiento>>
     
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(solicitud: SolicitudMantenimiento): Long
