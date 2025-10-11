@@ -2,7 +2,7 @@ package com.example.moldescmms.data.entities
 
 import androidx.room.Entity
 import androidx.room.ForeignKey
-import androidx:room.Index
+import androidx.room.Index
 import androidx.room.PrimaryKey
 
 @Entity(
@@ -39,11 +39,9 @@ data class OrdenCompra(
     val fechaEntregaEstimada: Long? = null,
     val fechaEntregaReal: Long? = null,
     
-    // Niveles de urgencia: Urgente, Alta, Normal, Baja
     val nivelUrgencia: String = "Normal",
     val justificacionUrgencia: String = "",
     
-    // Estados: Pendiente, Aprobada, En Proceso, Completada, Cancelada
     val estado: String = "Pendiente",
     
     val subtotal: Double = 0.0,
@@ -63,7 +61,7 @@ data class OrdenCompra(
     val notas: String = "",
     val observaciones: String = "",
     
-    val archivoOrden: String = "", // Path del archivo adjunto
+    val archivoOrden: String = "",
     val archivoFactura: String = "",
     
     val fechaCreacion: Long = System.currentTimeMillis(),
