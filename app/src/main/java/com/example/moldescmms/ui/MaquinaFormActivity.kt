@@ -12,83 +12,80 @@ import kotlinx.coroutines.launch
 class MaquinaFormActivity : AppCompatActivity() {
     
     private lateinit var database: AppDatabase
-    private var maquinaId: Long = -1
+    private var maquinaId: Long = 0
+    private var isEditMode = false
     
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_maquina_form)
         
         database = AppDatabase.getDatabase(this)
-        maquinaId = intent.getLongExtra("MAQUINA_ID", -1)
         
-        setupSpinners()
+        maquinaId = intent.getLongExtra("MAQUINA_ID", 0)
+        isEditMode = maquinaId > 0
         
-        if (maquinaId != -1L) {
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        supportActionBar?.title = if (isEditMode) "Editar Máquina" else "Nueva Máquina"
+        
+        if (isEditMode) {
             loadMaquina()
         }
         
-        findViewById<Button>(R.id.btn_save).setOnClickListener {
+        findViewById<Button>(R.id.btn_save_maquina)?.setOnClickListener {
             saveMaquina()
         }
         
-        findViewById<Button>(R.id.btn_cancel).setOnClickListener {
+        findViewById<Button>(R.id.btn_cancel_maquina)?.setOnClickListener {
             finish()
         }
     }
     
-    private fun setupSpinners() {
-        val tipos = arrayOf("Inyectora", "Sopladora", "Extrusora", "Termoformadora", "Otra")
-        val tipoAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, tipos)
-        tipoAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        findViewById<Spinner>(R.id.sp_tipo).adapter = tipoAdapter
-        
-        val estados = arrayOf("Operativa", "En Mantenimiento", "Fuera de Servicio")
-        val estadoAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, estados)
-        estadoAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-        findViewById<Spinner>(R.id.sp_estado).adapter = estadoAdapter
-    }
-    
     private fun loadMaquina() {
         lifecycleScope.launch {
-            val maq = database.maquinaDao().getById(maquinaId)
-            maq?.let {
-                findViewById<EditText>(R.id.et_codigo).setText(it.codigo)
-                findViewById<EditText>(R.id.et_nombre).setText(it.nombre)
-                findViewById<EditText>(R.id.et_marca).setText(it.marca)
-                findViewById<EditText>(R.id.et_modelo).setText(it.modelo)
-                findViewById<EditText>(R.id.et_tonelaje).setText(it.tonelaje.toString())
-                findViewById<EditText>(R.id.et_ubicacion).setText(it.ubicacion)
-                findViewById<EditText>(R.id.et_observaciones).setText(it.observaciones)
+            try {
+                val maquina = database.maquinaDao().getById(maquinaId)
+                maquina?.let {
+                    findViewById<EditText>(R.id.et_codigo_maquina)?.setText(it.codigo)
+                    findViewById<EditText>(R.id.et_nombre_maquina)?.setText(it.nombre)
+                    findViewById<EditText>(R.id.et_modelo_maquina)?.setText(it.modelo)
+                    findViewById<EditText>(R.id.et_fabricante_maquina)?.setText(it.fabricante)
+                }
+            } catch (e: Exception) {
+                e.printStackTrace()
             }
         }
     }
     
     private fun saveMaquina() {
-        val codigo = findViewById<EditText>(R.id.et_codigo).text.toString()
-        val nombre = findViewById<EditText>(R.id.et_nombre).text.toString()
+        val codigo = findViewById<EditText>(R.id.et_codigo_maquina)?.text.toString()
+        val nombre = findViewById<EditText>(R.id.et_nombre_maquina)?.text.toString()
         
         if (codigo.isEmpty() || nombre.isEmpty()) {
-            Toast.makeText(this, "Código y nombre son obligatorios", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, "Complete los campos obligatorios", Toast.LENGTH_SHORT).show()
             return
         }
         
         val maquina = Maquina(
-            id = if (maquinaId == -1L) 0 else maquinaId,
+            id = if (isEditMode) maquinaId else 0,
             codigo = codigo,
             nombre = nombre,
-            marca = findViewById<EditText>(R.id.et_marca).text.toString(),
-            modelo = findViewById<EditText>(R.id.et_modelo).text.toString(),
-            tipo = findViewById<Spinner>(R.id.sp_tipo).selectedItem.toString(),
-            tonelaje = findViewById<EditText>(R.id.et_tonelaje).text.toString().toIntOrNull() ?: 0,
-            ubicacion = findViewById<EditText>(R.id.et_ubicacion).text.toString(),
-            estado = findViewById<Spinner>(R.id.sp_estado).selectedItem.toString(),
-            observaciones = findViewById<EditText>(R.id.et_observaciones).text.toString()
+            modelo = findViewById<EditText>(R.id.et_modelo_maquina)?.text.toString(),
+            fabricante = findViewById<EditText>(R.id.et_fabricante_maquina)?.text.toString()
         )
         
         lifecycleScope.launch {
-            database.maquinaDao().insert(maquina)
-            Toast.makeText(this@MaquinaFormActivity, "Máquina guardada", Toast.LENGTH_SHORT).show()
-            finish()
+            try {
+                database.maquinaDao().insert(maquina)
+                Toast.makeText(this@MaquinaFormActivity, "Guardado", Toast.LENGTH_SHORT).show()
+                finish()
+            } catch (e: Exception) {
+                Toast.makeText(this@MaquinaFormActivity, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
         }
+    }
+    
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
     }
 }

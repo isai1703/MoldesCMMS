@@ -198,7 +198,6 @@ class RequerimientoInsumoDetailActivity : AppCompatActivity() {
         requerimiento?.let { req ->
             val updated = req.copy(
                 estado = "Comprado",
-                fechaCompra = System.currentTimeMillis(),
                 fechaActualizacion = System.currentTimeMillis()
             )
             
