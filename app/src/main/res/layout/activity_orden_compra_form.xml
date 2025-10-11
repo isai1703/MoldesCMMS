@@ -1,139 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="16dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:orientation="vertical">
 
-        <TextView
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Orden de Compra"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="16dp"/>
+            android:hint="Número de Orden">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_numero_orden"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Número de Orden *"
-            android:textStyle="bold"/>
-
-        <EditText
-            android:id="@+id/et_numero_orden"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="OC-001"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Proveedor *"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"/>
-
-        <EditText
-            android:id="@+id/et_proveedor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Nombre del proveedor"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Estado"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"/>
-
-        <Spinner
-            android:id="@+id/sp_estado"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Items (uno por línea: código:cantidad:precio)"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"/>
-
-        <EditText
-            android:id="@+id/et_items"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="REF-001:10:50.00"
-            android:inputType="textMultiLine"
-            android:lines="5"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Total"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"/>
-
-        <EditText
-            android:id="@+id/et_total"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="0.00"
-            android:inputType="numberDecimal"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Solicitado por"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"/>
-
-        <EditText
-            android:id="@+id/et_solicitado_por"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Nombre"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Observaciones"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"/>
-
-        <EditText
-            android:id="@+id/et_observaciones"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Observaciones"
-            android:inputType="textMultiLine"
-            android:lines="3"/>
+            android:hint="Proveedor"
+            android:layout_marginTop="8dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_proveedor_orden"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="16dp">
+            android:layout_marginTop="24dp">
 
             <Button
-                android:id="@+id/btn_save"
+                android:id="@+id/btn_cancel_orden"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Cancelar"
+                android:layout_marginEnd="8dp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+
+            <Button
+                android:id="@+id/btn_save_orden"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Guardar"
-                android:layout_marginEnd="8dp"/>
-
-            <Button
-                android:id="@+id/btn_cancel"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Cancelar"/>
-
+                android:layout_marginStart="8dp" />
         </LinearLayout>
-
     </LinearLayout>
 </ScrollView>

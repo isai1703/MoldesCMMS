@@ -1,260 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="16dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:orientation="vertical">
 
-        <TextView
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Datos del Molde"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="16dp"/>
+            android:hint="Código">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_codigo_molde"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <TextView
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Código *"
-            android:textStyle="bold"/>
+            android:hint="Nombre"
+            android:layout_marginTop="8dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_nombre_molde"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-        <EditText
-            android:id="@+id/et_codigo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Ej: MOL-001"
-            android:inputType="text"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Nombre *"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"/>
-
-        <EditText
-            android:id="@+id/et_nombre"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Nombre del molde"
-            android:inputType="text"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Descripción"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"/>
-
-        <EditText
-            android:id="@+id/et_descripcion"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Descripción"
-            android:inputType="textMultiLine"
-            android:lines="3"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Ubicación"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"/>
-
-        <EditText
-            android:id="@+id/et_ubicacion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Ej: Almacén A-1"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Número de Cavidades"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"/>
-
-        <EditText
-            android:id="@+id/et_cavidades"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="1"
-            android:inputType="number"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Tipo de Colada"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"/>
-
-        <Spinner
-            android:id="@+id/sp_tipo_colada"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Tipo de Expulsor"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"/>
-
-        <EditText
-            android:id="@+id/et_tipo_expulsor"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Ej: Pines, Placa, Manga"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Número de Expulsores"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"/>
-
-        <EditText
-            android:id="@+id/et_num_expulsores"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="0"
-            android:inputType="number"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Circuitos de Refrigerante"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"/>
-
-        <EditText
-            android:id="@+id/et_circuitos_refrigerante"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="0"
-            android:inputType="number"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Conexiones Rápidas"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"/>
-
-        <EditText
-            android:id="@+id/et_conexiones_rapidas"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="0"
-            android:inputType="number"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Circuitos de Aire"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"/>
-
-        <EditText
-            android:id="@+id/et_circuitos_aire"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="0"
-            android:inputType="number"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Conexiones de Aire"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"/>
-
-        <EditText
-            android:id="@+id/et_conexiones_aire"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="0"
-            android:inputType="number"/>
-
-        <CheckBox
-            android:id="@+id/cb_muelas_rosca"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Tiene muelas generadoras de rosca"
-            android:layout_marginTop="8dp"/>
-
-        <EditText
-            android:id="@+id/et_num_muelas"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Número de muelas"
-            android:inputType="number"
-            android:visibility="gone"/>
-
-        <CheckBox
-            android:id="@+id/cb_insertos"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Tiene insertos"
-            android:layout_marginTop="8dp"/>
-
-        <CheckBox
-            android:id="@+id/cb_correderas"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Tiene correderas"
-            android:layout_marginTop="8dp"/>
-
-        <CheckBox
-            android:id="@+id/cb_levantadores"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Tiene levantadores"
-            android:layout_marginTop="8dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Observaciones"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"/>
-
-        <EditText
-            android:id="@+id/et_observaciones"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Observaciones generales"
-            android:inputType="textMultiLine"
-            android:lines="3"/>
+            android:layout_marginTop="8dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_descripcion_molde"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:lines="3" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="16dp">
+            android:layout_marginTop="24dp">
 
             <Button
-                android:id="@+id/btn_save"
+                android:id="@+id/btn_cancel_molde"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Cancelar"
+                android:layout_marginEnd="8dp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
+
+            <Button
+                android:id="@+id/btn_save_molde"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="Guardar"
-                android:layout_marginEnd="8dp"/>
-
-            <Button
-                android:id="@+id/btn_cancel"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Cancelar"/>
-
+                android:layout_marginStart="8dp" />
         </LinearLayout>
-
     </LinearLayout>
 </ScrollView>
