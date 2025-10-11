@@ -19,7 +19,7 @@
             android:gravity="center"
             android:layout_marginBottom="24dp" />
 
-        <!-- Módulos de Moldes -->
+        <!-- Gestión de Moldes -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -49,11 +49,11 @@
             android:text="Solicitudes de Mantenimiento"
             android:layout_marginBottom="16dp" />
 
-        <!-- Módulos de Operaciones -->
+        <!-- Producción (antes Operaciones) -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Operaciones"
+            android:text="Producción"
             android:textSize="18sp"
             android:textStyle="bold"
             android:layout_marginTop="8dp"
@@ -80,7 +80,7 @@
             android:text="Requerimientos de Insumos"
             android:layout_marginBottom="16dp" />
 
-        <!-- Módulos de Máquinas -->
+        <!-- Máquinas y Equipos -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -104,7 +104,7 @@
             android:text="Refacciones de Máquinas"
             android:layout_marginBottom="16dp" />
 
-        <!-- Módulos de Calidad e Inventario -->
+        <!-- Calidad e Inventario -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

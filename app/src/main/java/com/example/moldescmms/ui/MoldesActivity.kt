@@ -2,6 +2,7 @@ package com.example.moldescmms.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -24,8 +25,32 @@ class MoldesActivity : AppCompatActivity() {
         
         database = AppDatabase.getDatabase(this)
         
-        findViewById<FloatingActionButton>(R.id.fab_add_molde)?.setOnClickListener {
-            startActivity(Intent(this, MoldeFormActivity::class.java))
+        val recyclerView = findViewById<RecyclerView>(R.id.rv_moldes)
+        recyclerView.layoutManager = LinearLayoutManager(this)
+        
+        findViewById<FloatingActionButton>(R.id.fab_add_molde).setOnClickListener {
+            try {
+                startActivity(Intent(this, MoldeFormActivity::class.java))
+            } catch (e: Exception) {
+                Toast.makeText(this, "Error al abrir formulario", Toast.LENGTH_SHORT).show()
+            }
+        }
+        
+        loadMoldes()
+    }
+    
+    private fun loadMoldes() {
+        lifecycleScope.launch {
+            try {
+                database.moldeDao().getAll().collect { moldes ->
+                    // Por ahora solo mostrar en Toast
+                    if (moldes.isEmpty()) {
+                        Toast.makeText(this@MoldesActivity, "No hay moldes registrados", Toast.LENGTH_SHORT).show()
+                    }
+                }
+            } catch (e: Exception) {
+                Toast.makeText(this@MoldesActivity, "Error: ${e.message}", Toast.LENGTH_SHORT).show()
+            }
         }
     }
     
