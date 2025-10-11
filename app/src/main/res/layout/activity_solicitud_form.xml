@@ -1,194 +1,192 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="16dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="16dp">
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Solicitud de Mantenimiento"
-            android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_marginBottom="16dp"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Departamento Solicitante *"
-            android:textStyle="bold"/>
-
-        <Spinner
-            android:id="@+id/sp_departamento"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Molde *"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"/>
+            android:text="Molde"
+            android:textSize="14sp" />
 
         <Spinner
             android:id="@+id/sp_molde"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:minHeight="48dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Tipo de Mantenimiento *"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"/>
+            android:text="Departamento"
+            android:textSize="14sp"
+            android:layout_marginTop="8dp" />
+
+        <Spinner
+            android:id="@+id/sp_departamento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tipo"
+            android:textSize="14sp"
+            android:layout_marginTop="8dp" />
 
         <Spinner
             android:id="@+id/sp_tipo"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:minHeight="48dp" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Subtipo *"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"/>
+            android:text="Subtipo"
+            android:textSize="14sp"
+            android:layout_marginTop="8dp" />
 
         <Spinner
             android:id="@+id/sp_subtipo"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
+            android:layout_height="wrap_content"
+            android:minHeight="48dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Problema Reportado"
+            android:layout_marginTop="8dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_problema"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:lines="3" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Prioridad"
+            android:textSize="14sp"
+            android:layout_marginTop="8dp" />
+
+        <Spinner
+            android:id="@+id/sp_prioridad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp" />
 
         <TextView
             android:id="@+id/tv_detalles_conexion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Tipo de Conexión"
-            android:textStyle="bold"
+            android:text="Detalles de Conexión"
+            android:textSize="14sp"
             android:layout_marginTop="8dp"
-            android:visibility="gone"/>
+            android:visibility="gone" />
 
         <Spinner
             android:id="@+id/sp_detalle_conexion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"/>
+            android:minHeight="48dp"
+            android:visibility="gone" />
 
         <CheckBox
             android:id="@+id/cb_conexion_y"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Requiere conexión tipo Y"
-            android:visibility="gone"/>
+            android:text="Conexión tipo Y"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/tv_calibre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Calibre de Manguera"
-            android:textStyle="bold"
+            android:text="Calibre"
+            android:textSize="14sp"
             android:layout_marginTop="8dp"
-            android:visibility="gone"/>
+            android:visibility="gone" />
 
         <Spinner
             android:id="@+id/sp_calibre"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"/>
+            android:minHeight="48dp"
+            android:visibility="gone" />
 
         <TextView
             android:id="@+id/tv_cantidad_mangueras"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Cantidad de Mangueras"
-            android:textStyle="bold"
+            android:textSize="14sp"
             android:layout_marginTop="8dp"
-            android:visibility="gone"/>
+            android:visibility="gone" />
 
-        <EditText
-            android:id="@+id/et_cantidad_mangueras"
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="0"
-            android:inputType="number"
-            android:visibility="gone"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Prioridad *"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"/>
-
-        <Spinner
-            android:id="@+id/sp_prioridad"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Descripción del Problema *"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"/>
-
-        <EditText
-            android:id="@+id/et_problema"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Describa detalladamente el problema"
-            android:inputType="textMultiLine"
-            android:lines="4"/>
+            android:visibility="gone">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_cantidad_mangueras"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <CheckBox
             android:id="@+id/cb_afecta_produccion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Afecta producción"/>
+            android:text="Afecta Producción"
+            android:layout_marginTop="8dp" />
 
-        <TextView
+        <com.google.android.material.textfield.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Comentarios Adicionales"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"/>
-
-        <EditText
-            android:id="@+id/et_comentarios"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Información adicional"
-            android:inputType="textMultiLine"
-            android:lines="3"/>
+            android:hint="Comentarios"
+            android:layout_marginTop="8dp">
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/et_comentarios"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textMultiLine"
+                android:lines="2" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginTop="16dp">
-
-            <Button
-                android:id="@+id/btn_save"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="Enviar Solicitud"
-                android:layout_marginEnd="8dp"/>
+            android:layout_marginTop="24dp">
 
             <Button
                 android:id="@+id/btn_cancel"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Cancelar"/>
+                android:text="Cancelar"
+                android:layout_marginEnd="8dp"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton" />
 
+            <Button
+                android:id="@+id/btn_save"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Enviar"
+                android:layout_marginStart="8dp" />
         </LinearLayout>
-
     </LinearLayout>
 </ScrollView>
