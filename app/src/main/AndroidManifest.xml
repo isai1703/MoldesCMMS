@@ -53,7 +53,29 @@
         <activity
             android:name=".ui.RefaccionMaquinaFormActivity"
             android:parentActivityName=".ui.RefaccionesMaquinaActivity" />
+        <activity
+            android:name=".ui.MoldesActivity"
+            android:parentActivityName=".ui.MainActivity" />
 
+        <activity
+            android:name=".ui.MantenimientosActivity"
+            android:parentActivityName=".ui.MainActivity" />
+
+        <activity
+            android:name=".ui.SolicitudesActivity"
+            android:parentActivityName=".ui.MainActivity" />
+
+        <activity
+            android:name=".ui.MaquinasActivity"
+            android:parentActivityName=".ui.MainActivity" />
+
+        <activity
+            android:name=".ui.CalidadActivity"
+            android:parentActivityName=".ui.MainActivity" />
+
+        <activity
+            android:name=".ui.InventarioActivity"
+            android:parentActivityName=".ui.MainActivity" />
     </application>
 
 </manifest>
