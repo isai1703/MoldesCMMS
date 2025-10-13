@@ -23,14 +23,21 @@ data class ItemOrdenCompra(
     
     val ordenCompraId: Long,
     
-    val articulo: String,
-    val descripcion: String = "",
-    val cantidad: Int,
-    val unidadMedida: String,
+    val numeroLinea: Int = 0,
+    val codigo: String = "",
+    val descripcion: String,
+    
+    val cantidad: Double,
+    val unidadMedida: String = "PZA",
+    
     val precioUnitario: Double,
+    val descuento: Double = 0.0,
     val subtotal: Double,
     
-    val especificaciones: String = "",
+    val cantidadRecibida: Double = 0.0,
+    val cantidadPendiente: Double,
+    
+    val notas: String = "",
     
     val fechaCreacion: Long = System.currentTimeMillis()
 )

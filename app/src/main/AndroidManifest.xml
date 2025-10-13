@@ -8,7 +8,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MoldesCMMS">
-        
+
         <activity
             android:name=".ui.MainActivity"
             android:exported="true">
@@ -18,64 +18,105 @@
             </intent-filter>
         </activity>
 
+        <!-- Actividades de Operadores -->
         <activity
             android:name=".ui.OperadoresActivity"
             android:parentActivityName=".ui.MainActivity" />
-            
+
         <activity
             android:name=".ui.OperadorFormActivity"
             android:parentActivityName=".ui.OperadoresActivity" />
 
+        <!-- Actividades de Registro de Producción -->
         <activity
             android:name=".ui.RegistroProduccionActivity"
             android:parentActivityName=".ui.MainActivity" />
-            
+
         <activity
             android:name=".ui.RegistroProduccionFormActivity"
             android:parentActivityName=".ui.RegistroProduccionActivity" />
 
+        <!-- Actividades de Requerimientos de Insumo -->
         <activity
             android:name=".ui.RequerimientosInsumoActivity"
             android:parentActivityName=".ui.MainActivity" />
-            
+
         <activity
             android:name=".ui.RequerimientoInsumoFormActivity"
             android:parentActivityName=".ui.RequerimientosInsumoActivity" />
-            
+
         <activity
             android:name=".ui.RequerimientoInsumoDetailActivity"
             android:parentActivityName=".ui.RequerimientosInsumoActivity" />
 
+        <!-- Actividades de Refacciones de Máquina -->
         <activity
             android:name=".ui.RefaccionesMaquinaActivity"
             android:parentActivityName=".ui.MainActivity" />
-            
+
         <activity
             android:name=".ui.RefaccionMaquinaFormActivity"
             android:parentActivityName=".ui.RefaccionesMaquinaActivity" />
+
+        <!-- Actividades de Moldes -->
         <activity
             android:name=".ui.MoldesActivity"
             android:parentActivityName=".ui.MainActivity" />
 
+        <!-- Actividades de Mantenimientos -->
         <activity
             android:name=".ui.MantenimientosActivity"
             android:parentActivityName=".ui.MainActivity" />
 
+        <!-- Actividades de Solicitudes -->
         <activity
             android:name=".ui.SolicitudesActivity"
             android:parentActivityName=".ui.MainActivity" />
 
+        <!-- Actividades de Máquinas -->
         <activity
             android:name=".ui.MaquinasActivity"
             android:parentActivityName=".ui.MainActivity" />
 
+        <!-- Actividades de Calidad -->
         <activity
             android:name=".ui.CalidadActivity"
             android:parentActivityName=".ui.MainActivity" />
 
+        <!-- Actividades de Inventario -->
         <activity
             android:name=".ui.InventarioActivity"
             android:parentActivityName=".ui.MainActivity" />
+
+        <!-- NUEVAS ACTIVIDADES -->
+        
+        <!-- Actividades de Proveedores -->
+        <activity
+            android:name=".ui.ProveedoresActivity"
+            android:parentActivityName=".ui.MainActivity" />
+
+        <activity
+            android:name=".ui.ProveedorFormActivity"
+            android:parentActivityName=".ui.ProveedoresActivity" />
+
+        <!-- Actividades de Preparación de Material (Materialistas) -->
+        <activity
+            android:name=".ui.PreparacionMaterialActivity"
+            android:parentActivityName=".ui.MainActivity" />
+
+        <activity
+            android:name=".ui.PreparacionMaterialFormActivity"
+            android:parentActivityName=".ui.PreparacionMaterialActivity" />
+
+        <!-- Actividades de Asignación de Producción -->
+        <activity
+            android:name=".ui.AsignacionProduccionActivity"
+            android:parentActivityName=".ui.MainActivity" />
+
+        <activity
+            android:name=".ui.AsignacionProduccionFormActivity"
+            android:parentActivityName=".ui.AsignacionProduccionActivity" />
+
     </application>
 
 </manifest>

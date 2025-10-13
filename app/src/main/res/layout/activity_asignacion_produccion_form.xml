@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp">
+
+            <EditText
+                android:id="@+id/et_asignacion_numero"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Número de Asignación"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp">
+
+            <EditText
+                android:id="@+id/et_asignacion_cantidad_objetivo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Cantidad Objetivo"
+                android:inputType="number" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp">
+
+            <EditText
+                android:id="@+id/et_asignacion_turno"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Turno (Matutino/Vespertino/Nocturno)"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp">
+
+            <EditText
+                android:id="@+id/et_asignacion_supervisor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Supervisor"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Nota: Los campos de Operador, Máquina y Molde se asignarán automáticamente"
+            android:textSize="12sp"
+            android:textStyle="italic"
+            android:layout_marginBottom="16dp"
+            android:textColor="@android:color/darker_gray" />
+
+        <Button
+            android:id="@+id/btn_save_asignacion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Guardar Asignación" />
+
+    </LinearLayout>
+
+</ScrollView>
