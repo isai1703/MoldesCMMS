@@ -3,160 +3,297 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp">
+    android:background="#F5F5F5">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:padding="16dp">
 
+        <!-- Header -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Sistema CMMS - Moldes"
-            android:textSize="24sp"
+            android:text="MoldesCMMS"
+            android:textSize="28sp"
             android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:background="#6200EE"
+            android:padding="16dp"
             android:gravity="center"
-            android:layout_marginBottom="24dp" />
+            android:layout_marginBottom="16dp" />
 
-        <!-- Gestión de Moldes -->
+        <!-- TALLER DE MOLDES -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Gestión de Moldes"
-            android:textSize="18sp"
+            android:text="TALLER DE MOLDES"
+            android:textSize="16sp"
             android:textStyle="bold"
-            android:layout_marginBottom="8dp" />
-
-        <Button
-            android:id="@+id/btn_moldes"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Moldes"
-            android:layout_marginBottom="8dp" />
-
-        <Button
-            android:id="@+id/btn_mantenimientos"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Mantenimientos"
+            android:textColor="#666666"
+            android:background="#E0E0E0"
+            android:padding="12dp"
             android:layout_marginBottom="8dp" />
 
         <Button
             android:id="@+id/btn_solicitudes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Solicitudes de Mantenimiento"
+            android:text="📋 SOLICITUDES DE MANTENIMIENTO"
+            android:background="#FFC107"
+            android:textColor="#000000"
+            android:padding="16dp"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btn_moldes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📦 GESTIÓN DE MOLDES"
+            android:background="#CCCCCC"
+            android:textColor="#000000"
+            android:padding="16dp"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btn_mantenimientos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🔧 MANTENIMIENTOS DE MOLDES"
+            android:background="#CCCCCC"
+            android:textColor="#000000"
+            android:padding="16dp"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btn_herramientas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🔨 HERRAMIENTAS"
+            android:background="#CCCCCC"
+            android:textColor="#000000"
+            android:padding="16dp"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btn_refacciones"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="⚙️ REFACCIONES"
+            android:background="#CCCCCC"
+            android:textColor="#000000"
+            android:padding="16dp"
             android:layout_marginBottom="16dp" />
 
-        <!-- Producción -->
+        <!-- MANTENIMIENTO DE MÁQUINAS -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Producción"
-            android:textSize="18sp"
+            android:text="MANTENIMIENTO DE MÁQUINAS"
+            android:textSize="16sp"
             android:textStyle="bold"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp" />
-
-        <Button
-            android:id="@+id/btn_operadores"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Gestión de Operadores"
-            android:layout_marginBottom="8dp" />
-
-        <Button
-            android:id="@+id/btn_registro_produccion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Registro de Producción"
-            android:layout_marginBottom="8dp" />
-
-        <Button
-            android:id="@+id/btn_asignacion_produccion"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Asignación de Producción"
-            android:layout_marginBottom="8dp" />
-
-        <Button
-            android:id="@+id/btn_requerimientos_insumo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Requerimientos de Insumos"
-            android:layout_marginBottom="8dp" />
-
-        <Button
-            android:id="@+id/btn_preparacion_material"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Preparación de Material (Materialistas)"
-            android:layout_marginBottom="16dp" />
-
-        <!-- Máquinas y Equipos -->
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Máquinas y Equipos"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            android:layout_marginTop="8dp"
+            android:textColor="#666666"
+            android:background="#C8E6C9"
+            android:padding="12dp"
             android:layout_marginBottom="8dp" />
 
         <Button
             android:id="@+id/btn_maquinas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Máquinas"
+            android:text="🏭 MÁQUINAS"
+            android:background="#CCCCCC"
+            android:textColor="#000000"
+            android:padding="16dp"
             android:layout_marginBottom="8dp" />
 
         <Button
-            android:id="@+id/btn_refacciones_maquina"
+            android:id="@+id/btn_mantenimientos_maquinas"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Refacciones de Máquinas"
+            android:text="🔧 MANTENIMIENTOS DE MÁQUINAS"
+            android:background="#CCCCCC"
+            android:textColor="#000000"
+            android:padding="16dp"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btn_solicitudes_mantenimiento_maquinas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📋 SOLICITUDES DE MANTENIMIENTO"
+            android:background="#CCCCCC"
+            android:textColor="#000000"
+            android:padding="16dp"
             android:layout_marginBottom="16dp" />
 
-        <!-- Calidad e Inventario -->
+        <!-- PRODUCCIÓN -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Calidad e Inventario"
-            android:textSize="18sp"
+            android:text="PRODUCCIÓN"
+            android:textSize="16sp"
             android:textStyle="bold"
-            android:layout_marginTop="8dp"
+            android:textColor="#666666"
+            android:background="#FFCDD2"
+            android:padding="12dp"
             android:layout_marginBottom="8dp" />
 
         <Button
-            android:id="@+id/btn_calidad"
+            android:id="@+id/btn_productos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Inspecciones de Calidad"
+            android:text="📦 PRODUCTOS"
+            android:background="#CCCCCC"
+            android:textColor="#000000"
+            android:padding="16dp"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btn_ordenes_produccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📋 ÓRDENES DE PRODUCCIÓN"
+            android:background="#CCCCCC"
+            android:textColor="#000000"
+            android:padding="16dp"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btn_operadores"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="👷 GESTIÓN DE OPERADORES"
+            android:background="#CCCCCC"
+            android:textColor="#000000"
+            android:padding="16dp"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btn_registro_produccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📊 REGISTRO DE PRODUCCIÓN"
+            android:background="#CCCCCC"
+            android:textColor="#000000"
+            android:padding="16dp"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btn_asignacion_produccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🎯 ASIGNACIÓN DE PRODUCCIÓN"
+            android:background="#CCCCCC"
+            android:textColor="#000000"
+            android:padding="16dp"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btn_preparacion_material"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🧪 PREPARACIÓN DE MATERIAL (MATERIALISTAS)"
+            android:background="#CCCCCC"
+            android:textColor="#000000"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- ALMACÉN -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="ALMACÉN"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#666666"
+            android:background="#FFF9C4"
+            android:padding="12dp"
             android:layout_marginBottom="8dp" />
 
         <Button
             android:id="@+id/btn_inventario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Inventario y Compras"
+            android:text="📊 INVENTARIO GENERAL"
+            android:background="#CCCCCC"
+            android:textColor="#000000"
+            android:padding="16dp"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btn_requerimientos_insumo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📦 REQUERIMIENTOS DE INSUMOS"
+            android:background="#CCCCCC"
+            android:textColor="#000000"
+            android:padding="16dp"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btn_refacciones_maquina"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="⚙️ REFACCIONES DE MÁQUINAS"
+            android:background="#CCCCCC"
+            android:textColor="#000000"
+            android:padding="16dp"
             android:layout_marginBottom="16dp" />
 
-        <!-- Compras y Proveedores -->
+        <!-- CALIDAD -->
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Compras y Proveedores"
-            android:textSize="18sp"
+            android:text="CALIDAD"
+            android:textSize="16sp"
             android:textStyle="bold"
-            android:layout_marginTop="8dp"
+            android:textColor="#666666"
+            android:background="#E1BEE7"
+            android:padding="12dp"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btn_calidad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="✅ INSPECCIONES DE CALIDAD"
+            android:background="#CCCCCC"
+            android:textColor="#000000"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- COMPRAS -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="COMPRAS"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="#666666"
+            android:background="#B2DFDB"
+            android:padding="12dp"
             android:layout_marginBottom="8dp" />
 
         <Button
             android:id="@+id/btn_proveedores"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Proveedores"
+            android:text="🏢 PROVEEDORES"
+            android:background="#CCCCCC"
+            android:textColor="#000000"
+            android:padding="16dp"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btn_ordenes_compra"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🛒 ÓRDENES DE COMPRA"
+            android:background="#CCCCCC"
+            android:textColor="#000000"
+            android:padding="16dp"
             android:layout_marginBottom="8dp" />
 
     </LinearLayout>
