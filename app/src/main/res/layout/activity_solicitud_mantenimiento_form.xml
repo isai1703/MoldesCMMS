@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:background="#1E1E1E">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!-- Selector de Tipo de Mantenimiento -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tipo de Equipo"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp" />
+
+        <Spinner
+            android:id="@+id/spinner_tipo_equipo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/darker_gray"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Spinner dinámico para Molde/Máquina -->
+        <TextView
+            android:id="@+id/tv_label_equipo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Molde"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp" />
+
+        <Spinner
+            android:id="@+id/spinner_equipo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/darker_gray"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Departamento -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Departamento"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp" />
+
+        <Spinner
+            android:id="@+id/spinner_departamento"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/darker_gray"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Tipo de Mantenimiento -->
+        <TextView
+            android:id="@+id/tv_label_tipo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tipo"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp" />
+
+        <Spinner
+            android:id="@+id/spinner_tipo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/darker_gray"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Subtipo (depende del Tipo) -->
+        <TextView
+            android:id="@+id/tv_label_subtipo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Subtipo"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp"
+            android:visibility="visible" />
+
+        <Spinner
+            android:id="@+id/spinner_subtipo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/darker_gray"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp"
+            android:visibility="visible" />
+
+        <!-- Problema Reportado -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Problema Reportado"
+            android:textColor="#AAAAAA"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/et_problema"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="@android:color/darker_gray"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#666666"
+            android:padding="12dp"
+            android:gravity="top"
+            android:inputType="textMultiLine"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Prioridad -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Prioridad"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp" />
+
+        <Spinner
+            android:id="@+id/spinner_prioridad"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/darker_gray"
+            android:padding="12dp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Afecta Producción -->
+        <CheckBox
+            android:id="@+id/cb_afecta_produccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Afecta Producción"
+            android:textColor="#FFFFFF"
+            android:layout_marginBottom="16dp" />
+
+        <!-- Comentarios -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Comentarios"
+            android:textColor="#AAAAAA"
+            android:textSize="14sp"
+            android:layout_marginBottom="8dp" />
+
+        <EditText
+            android:id="@+id/et_comentarios"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@android:color/darker_gray"
+            android:textColor="#FFFFFF"
+            android:textColorHint="#666666"
+            android:padding="12dp"
+            android:gravity="top"
+            android:inputType="textMultiLine"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Botones -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/btn_cancelar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="CANCELAR"
+                android:textColor="#FFFFFF"
+                android:background="@android:color/darker_gray"
+                android:layout_marginEnd="8dp" />
+
+            <Button
+                android:id="@+id/btn_enviar"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="ENVIAR"
+                android:textColor="#FFFFFF"
+                android:background="#7C4DFF"
+                android:layout_marginStart="8dp" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
