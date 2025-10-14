@@ -20,7 +20,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.btn_moldes).setOnClickListener {
-            startActivity(Intent(this, MoldesActivity::class.java))
+            startActivity(Intent(this, TallerMoldesMainActivity::class.java))
         }
 
         findViewById<Button>(R.id.btn_mantenimientos).setOnClickListener {

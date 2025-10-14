@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Calidad"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginBottom="24dp" />
+
+        <Button
+            android:id="@+id/btn_inspecciones"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Inspecciones de Calidad"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btn_solicitud_mantenimiento_moldes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Solicitar Mantenimiento de Moldes"
+            android:background="#FFC107"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btn_solicitud_mantenimiento_maquinas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Solicitar Mantenimiento de Máquinas"
+            android:background="#FF9800"
+            android:layout_marginBottom="8dp" />
+
+    </LinearLayout>
+
+</ScrollView>

@@ -6,28 +6,32 @@ import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import com.example.moldescmms.R
 
-class CalidadActivity : AppCompatActivity() {
+class ProduccionMainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_calidad_main)
+        setContentView(R.layout.activity_produccion_main)
 
-        supportActionBar?.title = "Calidad"
+        supportActionBar?.title = "Producción"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        findViewById<Button>(R.id.btn_inspecciones).setOnClickListener {
-            startActivity(Intent(this, InspeccionesListActivity::class.java))
+        findViewById<Button>(R.id.btn_productos).setOnClickListener {
+            startActivity(Intent(this, ProductosListActivity::class.java))
+        }
+
+        findViewById<Button>(R.id.btn_ordenes_produccion).setOnClickListener {
+            startActivity(Intent(this, RegistroProduccionActivity::class.java))
         }
 
         findViewById<Button>(R.id.btn_solicitud_mantenimiento_moldes).setOnClickListener {
             val intent = Intent(this, SolicitudMantenimientoFormActivity::class.java)
-            intent.putExtra("departamento_origen", "Calidad")
+            intent.putExtra("departamento_origen", "Producción")
             startActivity(intent)
         }
 
         findViewById<Button>(R.id.btn_solicitud_mantenimiento_maquinas).setOnClickListener {
             val intent = Intent(this, SolicitudMantenimientoMaquinaFormActivity::class.java)
-            intent.putExtra("departamento_origen", "Calidad")
+            intent.putExtra("departamento_origen", "Producción")
             startActivity(intent)
         }
     }

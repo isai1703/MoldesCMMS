@@ -63,33 +63,83 @@
             android:name=".ui.MoldesActivity"
             android:parentActivityName=".ui.MainActivity" />
 
+        <activity
+            android:name=".ui.TallerMoldesMainActivity"
+            android:parentActivityName=".ui.MainActivity" />
+
+        <activity
+            android:name=".ui.MoldesListActivity"
+            android:parentActivityName=".ui.TallerMoldesMainActivity" />
+
+        <activity
+            android:name=".ui.MoldeFormActivity"
+            android:parentActivityName=".ui.MoldesListActivity" />
+
         <!-- Actividades de Mantenimientos -->
         <activity
             android:name=".ui.MantenimientosActivity"
             android:parentActivityName=".ui.MainActivity" />
+
+        <activity
+            android:name=".ui.MantenimientosListActivity"
+            android:parentActivityName=".ui.TallerMoldesMainActivity" />
+
+        <activity
+            android:name=".ui.MantenimientoFormActivity"
+            android:parentActivityName=".ui.MantenimientosListActivity" />
 
         <!-- Actividades de Solicitudes -->
         <activity
             android:name=".ui.SolicitudesActivity"
             android:parentActivityName=".ui.MainActivity" />
 
+        <activity
+            android:name=".ui.SolicitudesMantenimientoListActivity"
+            android:parentActivityName=".ui.TallerMoldesMainActivity" />
+
+        <activity
+            android:name=".ui.SolicitudMantenimientoFormActivity"
+            android:parentActivityName=".ui.ProduccionMainActivity" />
+
+        <activity
+            android:name=".ui.SolicitudMantenimientoMaquinaFormActivity"
+            android:parentActivityName=".ui.ProduccionMainActivity" />
+
+        <activity
+            android:name=".ui.SolicitudDetalleActivity"
+            android:parentActivityName=".ui.SolicitudesMantenimientoListActivity" />
+
         <!-- Actividades de Máquinas -->
         <activity
             android:name=".ui.MaquinasActivity"
             android:parentActivityName=".ui.MainActivity" />
+
+        <activity
+            android:name=".ui.MaquinasListActivity"
+            android:parentActivityName=".ui.MaquinasActivity" />
+
+        <activity
+            android:name=".ui.MaquinaFormActivity"
+            android:parentActivityName=".ui.MaquinasListActivity" />
 
         <!-- Actividades de Calidad -->
         <activity
             android:name=".ui.CalidadActivity"
             android:parentActivityName=".ui.MainActivity" />
 
+        <activity
+            android:name=".ui.InspeccionesListActivity"
+            android:parentActivityName=".ui.CalidadActivity" />
+
+        <activity
+            android:name=".ui.InspeccionFormActivity"
+            android:parentActivityName=".ui.InspeccionesListActivity" />
+
         <!-- Actividades de Inventario -->
         <activity
             android:name=".ui.InventarioActivity"
             android:parentActivityName=".ui.MainActivity" />
 
-        <!-- NUEVAS ACTIVIDADES -->
-        
         <!-- Actividades de Proveedores -->
         <activity
             android:name=".ui.ProveedoresActivity"
@@ -99,7 +149,7 @@
             android:name=".ui.ProveedorFormActivity"
             android:parentActivityName=".ui.ProveedoresActivity" />
 
-        <!-- Actividades de Preparación de Material (Materialistas) -->
+        <!-- Actividades de Preparación de Material -->
         <activity
             android:name=".ui.PreparacionMaterialActivity"
             android:parentActivityName=".ui.MainActivity" />
@@ -116,6 +166,55 @@
         <activity
             android:name=".ui.AsignacionProduccionFormActivity"
             android:parentActivityName=".ui.AsignacionProduccionActivity" />
+
+        <!-- Actividades de Producción -->
+        <activity
+            android:name=".ui.ProduccionMainActivity"
+            android:parentActivityName=".ui.MainActivity" />
+
+        <activity
+            android:name=".ui.ProductosListActivity"
+            android:parentActivityName=".ui.ProduccionMainActivity" />
+
+        <activity
+            android:name=".ui.ProductoFormActivity"
+            android:parentActivityName=".ui.ProductosListActivity" />
+
+        <!-- Actividades de Herramientas -->
+        <activity
+            android:name=".ui.HerramientasListActivity"
+            android:parentActivityName=".ui.TallerMoldesMainActivity" />
+
+        <activity
+            android:name=".ui.HerramientaFormActivity"
+            android:parentActivityName=".ui.HerramientasListActivity" />
+
+        <!-- Actividades de Refacciones -->
+        <activity
+            android:name=".ui.RefaccionesListActivity"
+            android:parentActivityName=".ui.TallerMoldesMainActivity" />
+
+        <activity
+            android:name=".ui.RefaccionFormActivity"
+            android:parentActivityName=".ui.RefaccionesListActivity" />
+
+        <!-- Actividades de Órdenes de Compra -->
+        <activity
+            android:name=".ui.OrdenesCompraListActivity"
+            android:parentActivityName=".ui.MainActivity" />
+
+        <activity
+            android:name=".ui.OrdenCompraFormActivity"
+            android:parentActivityName=".ui.OrdenesCompraListActivity" />
+
+        <!-- Actividad de Estadísticas -->
+        <activity
+            android:name=".ui.EstadisticasTallerActivity"
+            android:parentActivityName=".ui.TallerMoldesMainActivity" />
+
+        <activity
+            android:name=".ui.EstadisticasActivity"
+            android:parentActivityName=".ui.MainActivity" />
 
     </application>
 
