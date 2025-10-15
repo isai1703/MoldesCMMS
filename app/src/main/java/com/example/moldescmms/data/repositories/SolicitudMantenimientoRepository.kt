@@ -6,19 +6,19 @@ import kotlinx.coroutines.flow.Flow
 
 class SolicitudMantenimientoRepository(private val solicitudMantenimientoDao: SolicitudMantenimientoDao) {
     
-    val allSolicitudes: Flow<List<SolicitudMantenimiento>> = solicitudMantenimientoDao.getAllSolicitudes()
+    val allSolicitudes: Flow<List<SolicitudMantenimiento>> = solicitudMantenimientoDao.getAll()
     
-    fun getSolicitudById(id: Long): Flow<SolicitudMantenimiento?> = 
-        solicitudMantenimientoDao.getSolicitudById(id)
+    suspend fun getSolicitudById(id: Long): SolicitudMantenimiento? = 
+        solicitudMantenimientoDao.getById(id)
     
     fun getSolicitudesByEstado(estado: String): Flow<List<SolicitudMantenimiento>> = 
-        solicitudMantenimientoDao.getSolicitudesByEstado(estado)
+        solicitudMantenimientoDao.getByEstado(estado)
+    
+    fun getSolicitudesByDepartamento(departamento: String): Flow<List<SolicitudMantenimiento>> = 
+        solicitudMantenimientoDao.getByDepartamento(departamento)
     
     fun getSolicitudesByPrioridad(prioridad: String): Flow<List<SolicitudMantenimiento>> = 
-        solicitudMantenimientoDao.getSolicitudesByPrioridad(prioridad)
-    
-    fun getSolicitudesByFecha(inicio: Long, fin: Long): Flow<List<SolicitudMantenimiento>> = 
-        solicitudMantenimientoDao.getSolicitudesByFecha(inicio, fin)
+        solicitudMantenimientoDao.getByPrioridad(prioridad)
     
     suspend fun insert(solicitud: SolicitudMantenimiento): Long = 
         solicitudMantenimientoDao.insert(solicitud)
