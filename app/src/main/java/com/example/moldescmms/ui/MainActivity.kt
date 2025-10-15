@@ -14,17 +14,17 @@ class MainActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
 
-        // TALLER DE MOLDES
+        // TALLER DE MOLDES - Abre el menú del taller
         findViewById<Button>(R.id.btn_solicitudes).setOnClickListener {
-            startActivity(Intent(this, SolicitudesActivity::class.java))
-        }
-
-        findViewById<Button>(R.id.btn_moldes).setOnClickListener {
             startActivity(Intent(this, TallerMoldesMainActivity::class.java))
         }
 
+        findViewById<Button>(R.id.btn_moldes).setOnClickListener {
+            startActivity(Intent(this, MoldesListActivity::class.java))
+        }
+
         findViewById<Button>(R.id.btn_mantenimientos).setOnClickListener {
-            startActivity(Intent(this, MantenimientosActivity::class.java))
+            startActivity(Intent(this, MantenimientosListActivity::class.java))
         }
 
         findViewById<Button>(R.id.btn_herramientas).setOnClickListener {
@@ -41,18 +41,16 @@ class MainActivity : AppCompatActivity() {
         }
 
         findViewById<Button>(R.id.btn_mantenimientos_maquinas).setOnClickListener {
-            // TODO: Crear actividad de Mantenimientos de Máquinas
             startActivity(Intent(this, MaquinasActivity::class.java))
         }
 
         findViewById<Button>(R.id.btn_solicitudes_mantenimiento_maquinas).setOnClickListener {
-            // TODO: Crear actividad de Solicitudes de Mantenimiento de Máquinas
             startActivity(Intent(this, SolicitudesActivity::class.java))
         }
 
-        // PRODUCCIÓN
+        // PRODUCCIÓN - Abre el menú de producción
         findViewById<Button>(R.id.btn_productos).setOnClickListener {
-            startActivity(Intent(this, ProductosListActivity::class.java))
+            startActivity(Intent(this, ProduccionMainActivity::class.java))
         }
 
         findViewById<Button>(R.id.btn_ordenes_produccion).setOnClickListener {
