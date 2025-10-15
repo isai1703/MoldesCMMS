@@ -3,6 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFCDD2"
     android:padding="16dp">
 
     <LinearLayout
@@ -17,36 +18,67 @@
             android:textSize="24sp"
             android:textStyle="bold"
             android:gravity="center"
-            android:layout_marginBottom="24dp" />
+            android:background="#6200EE"
+            android:textColor="#FFFFFF"
+            android:padding="16dp"
+            android:layout_marginBottom="16dp" />
+
+        <Button
+            android:id="@+id/btn_solicitar_mantenimiento_moldes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📋 Solicitar Mantenimiento de Moldes"
+            android:background="#FFC107"
+            android:textColor="#000000"
+            android:padding="16dp"
+            android:layout_marginBottom="8dp" />
 
         <Button
             android:id="@+id/btn_productos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Productos"
+            android:text="📦 Productos"
+            android:background="#CCCCCC"
             android:layout_marginBottom="8dp" />
 
         <Button
             android:id="@+id/btn_ordenes_produccion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Órdenes de Producción"
+            android:text="📋 Órdenes de Producción"
+            android:background="#CCCCCC"
             android:layout_marginBottom="8dp" />
 
         <Button
-            android:id="@+id/btn_solicitud_mantenimiento_moldes"
+            android:id="@+id/btn_operadores"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Solicitar Mantenimiento de Moldes"
-            android:background="#FFC107"
-            android:layout_marginBottom="16dp" />
+            android:text="👷 Gestión de Operadores"
+            android:background="#CCCCCC"
+            android:layout_marginBottom="8dp" />
 
         <Button
-            android:id="@+id/btn_solicitud_mantenimiento_maquinas"
+            android:id="@+id/btn_registro_produccion"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Solicitar Mantenimiento de Máquinas"
-            android:background="#FF9800"
+            android:text="📊 Registro de Producción"
+            android:background="#CCCCCC"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btn_asignacion_produccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🎯 Asignación de Producción"
+            android:background="#CCCCCC"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/btn_preparacion_material"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="🧪 Preparación de Material"
+            android:background="#CCCCCC"
             android:layout_marginBottom="8dp" />
 
     </LinearLayout>

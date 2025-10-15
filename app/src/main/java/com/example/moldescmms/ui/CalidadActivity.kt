@@ -15,20 +15,15 @@ class CalidadActivity : AppCompatActivity() {
         supportActionBar?.title = "Calidad"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-        findViewById<Button>(R.id.btn_inspecciones).setOnClickListener {
-            startActivity(Intent(this, InspeccionesListActivity::class.java))
-        }
-
-        findViewById<Button>(R.id.btn_solicitud_mantenimiento_moldes).setOnClickListener {
+        // Botón para crear solicitud de mantenimiento de moldes
+        findViewById<Button>(R.id.btn_solicitar_mantenimiento_moldes).setOnClickListener {
             val intent = Intent(this, SolicitudMantenimientoFormActivity::class.java)
             intent.putExtra("departamento_origen", "Calidad")
             startActivity(intent)
         }
 
-        findViewById<Button>(R.id.btn_solicitud_mantenimiento_maquinas).setOnClickListener {
-            val intent = Intent(this, SolicitudMantenimientoMaquinaFormActivity::class.java)
-            intent.putExtra("departamento_origen", "Calidad")
-            startActivity(intent)
+        findViewById<Button>(R.id.btn_inspecciones).setOnClickListener {
+            startActivity(Intent(this, InspeccionesListActivity::class.java))
         }
     }
 

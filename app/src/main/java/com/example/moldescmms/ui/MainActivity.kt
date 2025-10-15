@@ -14,9 +14,9 @@ class MainActivity : AppCompatActivity() {
 
         supportActionBar?.hide()
 
-        // TALLER DE MOLDES - Abre el menú del taller
+        // TALLER DE MOLDES - Botón amarillo abre LISTA de solicitudes recibidas
         findViewById<Button>(R.id.btn_solicitudes).setOnClickListener {
-            startActivity(Intent(this, TallerMoldesMainActivity::class.java))
+            startActivity(Intent(this, SolicitudesRecibidasActivity::class.java))
         }
 
         findViewById<Button>(R.id.btn_moldes).setOnClickListener {
@@ -48,7 +48,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, SolicitudesActivity::class.java))
         }
 
-        // PRODUCCIÓN - Abre el menú de producción
+        // PRODUCCIÓN - Abre el menú de producción con botón de solicitud
         findViewById<Button>(R.id.btn_productos).setOnClickListener {
             startActivity(Intent(this, ProduccionMainActivity::class.java))
         }
@@ -86,7 +86,7 @@ class MainActivity : AppCompatActivity() {
             startActivity(Intent(this, RefaccionesMaquinaActivity::class.java))
         }
 
-        // CALIDAD
+        // CALIDAD - Abre el menú de calidad con botón de solicitud
         findViewById<Button>(R.id.btn_calidad).setOnClickListener {
             startActivity(Intent(this, CalidadActivity::class.java))
         }
