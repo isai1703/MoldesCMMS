@@ -15,8 +15,9 @@ class TallerMoldesMainActivity : AppCompatActivity() {
         supportActionBar?.title = "Taller de Moldes"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
+        // Botón para VER/RECIBIR solicitudes (no para crear)
         findViewById<Button>(R.id.btn_solicitudes_recibidas).setOnClickListener {
-            startActivity(Intent(this, SolicitudesMantenimientoListActivity::class.java))
+            startActivity(Intent(this, SolicitudesRecibidasActivity::class.java))
         }
 
         findViewById<Button>(R.id.btn_gestion_moldes).setOnClickListener {

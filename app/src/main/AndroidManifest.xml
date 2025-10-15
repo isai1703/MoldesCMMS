@@ -216,6 +216,10 @@
             android:name=".ui.EstadisticasActivity"
             android:parentActivityName=".ui.MainActivity" />
 
+            <activity
+            android:name=".ui.SolicitudesRecibidasActivity"
+            android:parentActivityName=".ui.TallerMoldesMainActivity" />
+
     </application>
 
 </manifest>
