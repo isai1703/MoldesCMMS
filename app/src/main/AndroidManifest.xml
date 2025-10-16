@@ -223,3 +223,34 @@
     </application>
 
 </manifest>
+        <activity
+            android:name=".ui.SupervisorDashboardActivity"
+            android:parentActivityName=".ui.TallerMoldesMainActivity" />
+
+        <activity
+            android:name=".ui.SolicitudesPendientesActivity"
+            android:parentActivityName=".ui.SupervisorDashboardActivity" />
+
+        <activity
+            android:name=".ui.AsignarSolicitudActivity"
+            android:parentActivityName=".ui.SolicitudesPendientesActivity" />
+
+        <activity
+            android:name=".ui.GestionarAuxiliaresActivity"
+            android:parentActivityName=".ui.SupervisorDashboardActivity" />
+
+        <activity
+            android:name=".ui.AuxiliarFormActivity"
+            android:parentActivityName=".ui.GestionarAuxiliaresActivity" />
+
+        <activity
+            android:name=".ui.AuxiliarDetalleActivity"
+            android:parentActivityName=".ui.GestionarAuxiliaresActivity" />
+
+        <activity
+            android:name=".ui.AsignacionesActivasActivity"
+            android:parentActivityName=".ui.SupervisorDashboardActivity" />
+
+        <activity
+            android:name=".ui.EstadisticasEquipoActivity"
+            android:parentActivityName=".ui.SupervisorDashboardActivity" />
