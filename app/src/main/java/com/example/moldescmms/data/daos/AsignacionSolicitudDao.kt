@@ -15,12 +15,12 @@ interface AsignacionSolicitudDao {
     @Delete
     suspend fun delete(asignacion: AsignacionSolicitud)
     
-    @Query("SELECT * FROM asignacion_solicitud WHERE id = :id")
+    @Query("SELECT * FROM asignaciones_solicitud WHERE id = :id")
     suspend fun getById(id: Long): AsignacionSolicitud?
     
-    @Query("SELECT * FROM asignacion_solicitud WHERE auxiliar_id = :auxiliarId")
+    @Query("SELECT * FROM asignaciones_solicitud WHERE tecnicoId = :auxiliarId")
     suspend fun getByAuxiliarId(auxiliarId: Long): List<AsignacionSolicitud>
     
-    @Query("SELECT * FROM asignacion_solicitud")
+    @Query("SELECT * FROM asignaciones_solicitud")
     suspend fun getAll(): List<AsignacionSolicitud>
 }

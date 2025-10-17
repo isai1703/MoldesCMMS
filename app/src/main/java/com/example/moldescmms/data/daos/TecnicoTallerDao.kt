@@ -15,9 +15,9 @@ interface TecnicoTallerDao {
     @Delete
     suspend fun delete(tecnico: TecnicoTaller)
     
-    @Query("SELECT * FROM tecnico_taller WHERE id = :id")
+    @Query("SELECT * FROM tecnicos_taller WHERE id = :id")
     suspend fun getById(id: Long): TecnicoTaller?
     
-    @Query("SELECT * FROM tecnico_taller")
+    @Query("SELECT * FROM tecnicos_taller")
     suspend fun getAll(): List<TecnicoTaller>
 }
