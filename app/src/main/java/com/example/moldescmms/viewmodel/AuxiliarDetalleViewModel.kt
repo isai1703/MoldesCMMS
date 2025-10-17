@@ -22,12 +22,12 @@ class AuxiliarDetalleViewModel(application: Application) : AndroidViewModel(appl
     private val _tareasAsignadas = MutableStateFlow<List<AsignacionSolicitud>>(emptyList())
     val tareasAsignadas: StateFlow<List<AsignacionSolicitud>> = _tareasAsignadas
     
-    suspend fun cargarDetalleAuxiliar(auxiliarId: Long) {
+    fun cargarDetalleAuxiliar(auxiliarId: Long) {
         viewModelScope.launch {
-            val auxiliar = auxiliarDao.obtenerPorId(auxiliarId)
+            val auxiliar = auxiliarDao.getById(auxiliarId)
             _auxiliarData.emit(auxiliar)
             
-            val tareas = asignacionDao.obtenerPorAuxiliarId(auxiliarId)
+            val tareas = asignacionDao.getByAuxiliarId(auxiliarId)
             _tareasAsignadas.emit(tareas)
         }
     }

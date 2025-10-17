@@ -29,10 +29,10 @@ class VistaAuxiliarTareasViewModel(application: Application) : AndroidViewModel(
     private var estadoFiltro = "PENDIENTE"
     private var auxiliarIdActual = -1L
     
-    suspend fun cargarTareasAuxiliar(auxiliarId: Long) {
+    fun cargarTareasAuxiliar(auxiliarId: Long) {
         auxiliarIdActual = auxiliarId
         viewModelScope.launch {
-            val todasTareas = asignacionDao.obtenerPorAuxiliarId(auxiliarId)
+            val todasTareas = asignacionDao.getByAuxiliarId(auxiliarId)
             calcularEstadisticas(todasTareas)
             filtrarPorEstado(estadoFiltro)
         }
@@ -41,7 +41,7 @@ class VistaAuxiliarTareasViewModel(application: Application) : AndroidViewModel(
     fun filtrarPorEstado(estado: String) {
         estadoFiltro = estado
         viewModelScope.launch {
-            val todasTareas = asignacionDao.obtenerPorAuxiliarId(auxiliarIdActual)
+            val todasTareas = asignacionDao.getByAuxiliarId(auxiliarIdActual)
             val filtradas = todasTareas.filter { it.estado == estado }
             _tareasAgrupadas.emit(filtradas)
             calcularEstadisticas(todasTareas)

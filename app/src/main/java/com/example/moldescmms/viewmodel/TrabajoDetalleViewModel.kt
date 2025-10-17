@@ -37,15 +37,15 @@ class TrabajoDetalleViewModel(application: Application) : AndroidViewModel(appli
     private val _mensajeError = MutableStateFlow("")
     val mensajeError: StateFlow<String> = _mensajeError
     
-    suspend fun cargarDetalleAsignacion(asignacionId: Long) {
+    fun cargarDetalleAsignacion(asignacionId: Long) {
         viewModelScope.launch {
             try {
-                val asignacion = asignacionDao.obtenerPorId(asignacionId)
+                val asignacion = asignacionDao.getById(asignacionId)
                 asignacion?.let {
-                    val solicitud = solicitudDao.obtenerPorId(it.solicitudMantenimientoId)
-                    val molde = moldeDao.obtenerPorId(solicitud?.moldeId ?: 0L)
-                    val supervisor = supervisorDao.obtenerPorId(it.supervisorId)
-                    val auxiliar = supervisorDao.obtenerPorId(it.auxiliarId)
+                    val solicitud = solicitudDao.getById(it.solicitudMantenimientoId)
+                    val molde = moldeDao.getById(solicitud?.moldeId ?: 0L)
+                    val supervisor = supervisorDao.getById(it.supervisorId)
+                    val auxiliar = supervisorDao.getById(it.auxiliarId)
                     
                     val detalle = DetalleTrabajoUI(
                         id = it.id,
@@ -68,16 +68,16 @@ class TrabajoDetalleViewModel(application: Application) : AndroidViewModel(appli
         }
     }
     
-    suspend fun cambiarEstado(asignacionId: Long, nuevoEstado: String) {
+    fun cambiarEstado(asignacionId: Long, nuevoEstado: String) {
         viewModelScope.launch {
             try {
-                val asignacion = asignacionDao.obtenerPorId(asignacionId)
+                val asignacion = asignacionDao.getById(asignacionId)
                 asignacion?.let {
                     val actualizado = it.copy(
                         estado = nuevoEstado,
                         fechaActualizacion = System.currentTimeMillis()
                     )
-                    asignacionDao.actualizar(actualizado)
+                    asignacionDao.update(actualizado)
                     cargarDetalleAsignacion(asignacionId)
                 }
             } catch (e: Exception) {
@@ -86,16 +86,16 @@ class TrabajoDetalleViewModel(application: Application) : AndroidViewModel(appli
         }
     }
     
-    suspend fun guardarNotasTecnico(asignacionId: Long, notas: String) {
+    fun guardarNotasTecnico(asignacionId: Long, notas: String) {
         viewModelScope.launch {
             try {
-                val asignacion = asignacionDao.obtenerPorId(asignacionId)
+                val asignacion = asignacionDao.getById(asignacionId)
                 asignacion?.let {
                     val actualizado = it.copy(
                         notasTecnico = notas,
                         fechaActualizacion = System.currentTimeMillis()
                     )
-                    asignacionDao.actualizar(actualizado)
+                    asignacionDao.update(actualizado)
                     cargarDetalleAsignacion(asignacionId)
                 }
             } catch (e: Exception) {
