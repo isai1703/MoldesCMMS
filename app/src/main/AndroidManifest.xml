@@ -216,13 +216,11 @@
             android:name=".ui.EstadisticasActivity"
             android:parentActivityName=".ui.MainActivity" />
 
-            <activity
+        <activity
             android:name=".ui.SolicitudesRecibidasActivity"
             android:parentActivityName=".ui.TallerMoldesMainActivity" />
 
-    </application>
-
-</manifest>
+        <!-- SISTEMA DE DELEGACIÓN TALLER - SUPERVISOR -->
         <activity
             android:name=".ui.SupervisorDashboardActivity"
             android:parentActivityName=".ui.TallerMoldesMainActivity" />
@@ -254,3 +252,16 @@
         <activity
             android:name=".ui.EstadisticasEquipoActivity"
             android:parentActivityName=".ui.SupervisorDashboardActivity" />
+
+        <!-- SISTEMA DE INTERFAZ AUXILIAR - FASE 1 -->
+        <activity
+            android:name=".ui.VistaAuxiliarTareasActivity"
+            android:parentActivityName=".ui.AuxiliarDetalleActivity" />
+
+        <activity
+            android:name=".ui.TrabajoDetalleActivity"
+            android:parentActivityName=".ui.VistaAuxiliarTareasActivity" />
+
+    </application>
+
+</manifest>
