@@ -1,5 +1,7 @@
 package com.example.moldescmms.ui
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -55,15 +57,13 @@ class TrabajoDetalleActivity : AppCompatActivity() {
     }
     
     private fun setupObservers() {
-        lifecycleScope.launch {
-            viewModel.cargarDetalleAsignacion(asignacionId)
-        }
+        viewModel.cargarDetalleAsignacion(asignacionId)
         
         lifecycleScope.launch {
             viewModel.asignacionData.collect { asignacion ->
                 asignacion?.let {
                     binding.apply {
-                        tvSolicitudId.text = "Solicitud #${it.solicitudMantenimientoId}"
+                        tvSolicitudId.text = "Solicitud #${it.solicitudId}"
                         tvMoldeNombre.text = "Molde: ${it.moldeNombre}"
                         tvEstado.text = "Estado: ${it.estado}"
                         tvDescripcion.text = it.descripcionSolicitud
@@ -71,14 +71,14 @@ class TrabajoDetalleActivity : AppCompatActivity() {
                         
                         tvSupervisor.text = "Supervisor: ${it.supervisorNombre}"
                         tvAuxiliar.text = "Auxiliar: ${it.auxiliarNombre}"
-                        tvTurno.text = "Turno: ${it.turnoPreferente}"
+                        tvTurno.text = "Turno: ${it.turnoAsignado}"
                         
-                        tvNotasAsignacion.text = it.notas.takeIf { n -> n.isNotEmpty() }
+                        tvNotasAsignacion.text = it.notasAsignacion.takeIf { n -> n.isNotEmpty() }
                             ?: "Sin notas del supervisor"
                         
-                        btnCambiarEstado.isEnabled = it.estado != "COMPLETADA"
-                        btnMarcarCompletada.isEnabled = it.estado != "COMPLETADA"
-                        etNotasTecnico.isEnabled = it.estado != "COMPLETADA"
+                        btnCambiarEstado.isEnabled = it.estado != "Completada"
+                        btnMarcarCompletada.isEnabled = it.estado != "Completada"
+                        etNotasTecnico.isEnabled = it.estado != "Completada"
                         
                         if (it.notasTecnico.isNotEmpty()) {
                             etNotasTecnico.setText(it.notasTecnico)
@@ -104,10 +104,10 @@ class TrabajoDetalleActivity : AppCompatActivity() {
             .setTitle("Cambiar estado del trabajo")
             .setItems(opciones) { _, which ->
                 val nuevoEstado = when (which) {
-                    0 -> "EN_PROCESO"
-                    1 -> "PAUSADA"
-                    2 -> "COMPLETADA"
-                    else -> "PENDIENTE"
+                    0 -> "En Proceso"
+                    1 -> "Pausada"
+                    2 -> "Completada"
+                    else -> "Asignada"
                 }
                 cambiarEstado(nuevoEstado)
             }
@@ -142,7 +142,7 @@ class TrabajoDetalleActivity : AppCompatActivity() {
             .setTitle("¿Completar trabajo?")
             .setMessage("Asegúrate de guardar las notas técnicas antes de marcar como completada.")
             .setPositiveButton("Completar") { _, _ ->
-                cambiarEstado("COMPLETADA")
+                cambiarEstado("Completada")
             }
             .setNegativeButton("Cancelar", null)
             .show()
@@ -172,8 +172,8 @@ class TrabajoDetalleActivity : AppCompatActivity() {
     }
     
     companion object {
-        fun getIntent(context: android.content.Context, asignacionId: Long) =
-            android.content.Intent(context, TrabajoDetalleActivity::class.java).apply {
+        fun getIntent(context: Context, asignacionId: Long) =
+            Intent(context, TrabajoDetalleActivity::class.java).apply {
                 putExtra("ASIGNACION_ID", asignacionId)
             }
     }

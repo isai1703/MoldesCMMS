@@ -11,15 +11,15 @@ import kotlinx.coroutines.launch
 
 data class DetalleTrabajoUI(
     val id: Long,
-    val solicitudMantenimientoId: Long,
+    val solicitudId: Long,
     val moldeNombre: String,
     val estado: String,
     val descripcionSolicitud: String,
     val fechaAsignacion: Long,
     val supervisorNombre: String,
     val auxiliarNombre: String,
-    val turnoPreferente: String,
-    val notas: String,
+    val turnoAsignado: String,
+    val notasAsignacion: String,
     val notasTecnico: String = ""
 )
 
@@ -42,22 +42,22 @@ class TrabajoDetalleViewModel(application: Application) : AndroidViewModel(appli
             try {
                 val asignacion = asignacionDao.getById(asignacionId)
                 asignacion?.let {
-                    val solicitud = solicitudDao.getById(it.solicitudMantenimientoId)
+                    val solicitud = solicitudDao.getById(it.solicitudId)
                     val molde = moldeDao.getById(solicitud?.moldeId ?: 0L)
-                    val supervisor = supervisorDao.getById(it.supervisorId)
-                    val auxiliar = supervisorDao.getById(it.auxiliarId)
+                    val supervisor = if (it.supervisorId != null) supervisorDao.getById(it.supervisorId) else null
+                    val auxiliar = supervisorDao.getById(it.tecnicoId)
                     
                     val detalle = DetalleTrabajoUI(
                         id = it.id,
-                        solicitudMantenimientoId = it.solicitudMantenimientoId,
+                        solicitudId = it.solicitudId,
                         moldeNombre = molde?.nombre ?: "Desconocido",
                         estado = it.estado,
                         descripcionSolicitud = solicitud?.descripcion ?: "",
                         fechaAsignacion = it.fechaAsignacion,
-                        supervisorNombre = supervisor?.nombre ?: "Desconocido",
-                        auxiliarNombre = auxiliar?.nombre ?: "Desconocido",
-                        turnoPreferente = it.turnoPreferente,
-                        notas = it.notas,
+                        supervisorNombre = supervisor?.nombre ?: it.asignadoPor,
+                        auxiliarNombre = it.tecnicoNombre,
+                        turnoAsignado = it.turnoAsignado,
+                        notasAsignacion = it.notasAsignacion,
                         notasTecnico = it.notasTecnico
                     )
                     _asignacionData.emit(detalle)
